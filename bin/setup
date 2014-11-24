@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+  puts '== Installing dependencies =='
+  system 'gem install bundler --conservative'
+  system 'bundle check || bundle install'
+  # system 'npm install'
+
+  puts "\n== Preparing databases =="
+  system 'bin/rake db:create db:setup'
+
+  system 'RAILS_ENV=test bin/rake db:create db:setup'
+
+  puts "\n== Loading sample data =="
+  system 'bin/rake db:sample_data'
+
+  puts "\n== Restarting application server =="
+  system 'mkdir -p tmp && touch tmp/restart.txt'
+end

@@ -1,0 +1,10 @@
+= include_gon camel_case: true, init: true, camel_depth: :recursive
+= javascript_include_tag :application
+
+= yield :javascript
+
+= render 'analytics'
+
+- if Rails.env.test?
+  javascript:
+    $.ajaxSetup({ async: false });

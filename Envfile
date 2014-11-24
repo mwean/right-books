@@ -1,0 +1,17 @@
+enable_defaults!
+
+variable :HOSTNAME, :boolean, default: 'false'
+variable :UNICORN_BACKLOG, :integer, default: '16'
+variable :UNICORN_WORKERS, :integer, default: '3'
+variable :UNICORN_TIMEOUT, :integer, default: '15'
+variable :RACK_TIMEOUT, :integer, default: '5'
+
+production = lambda do
+  variable :RACK_ENV
+  variable :SECRET_KEY_BASE
+  variable :DATABASE_URL
+  variable :PORT, :integer
+end
+
+group(:production) { production.call }
+group(:acceptance) { production.call }

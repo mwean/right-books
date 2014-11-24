@@ -1,0 +1,55 @@
+require: rubocop-rspec
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 100
+
+AccessorMethodName:
+  Enabled: false
+
+GuardClause:
+  Enabled: true
+
+MethodCalledOnDoEndBlock:
+  Enabled: true
+
+SymbolArray:
+  Enabled: true
+
+TrivialAccessors:
+  ExactNameMatch: true
+
+CollectionMethods:
+  Enabled: true
+
+PredicateName:
+  NamePrefix:
+    - is_
+    - have_
+  NamePrefixBlacklist:
+    - is_
+    - have_
+
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/DescribeMethod:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+RSpec/InstanceVariable:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - config/unicorn.rb
+    - db/**/*
+    - spec/spec_helper.rb
+    - vendor/**/*
+    - bin/**/*
+    - lib/templates/**/*
+
+  RunRailsCops: true
