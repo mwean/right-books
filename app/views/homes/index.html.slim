@@ -1,0 +1,4 @@
+ul.new-releases
+  - @new_releases.each do |book|
+    li= link_to book, class: 'book' do
+      = render 'book', book: book

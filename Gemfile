@@ -12,6 +12,7 @@ gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails'
 gem 'cssminify'
+gem 'friendly_id'
 gem 'gon'
 gem 'high_voltage', '~> 2.2.1'
 gem 'i18n-tasks', '~> 0.7.8'
@@ -64,11 +65,13 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.27.0', require: false
   gem 'rubocop-rspec', require: false
+  gem 'site_prism'
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'faker'
   gem 'guard', '~> 2.6.1'
   gem 'guard-livereload'
   gem 'launchy'

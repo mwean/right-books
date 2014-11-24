@@ -6,7 +6,10 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'rack_session_access/capybara'
 require 'capybara-screenshot/rspec'
+require 'site_prism'
 
+Dir[Rails.root.join('spec/sections/**/*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec/pages/**/*.rb')].sort.each { |f| require f }
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -17,5 +20,4 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
-  config.backtrace_exclusion_patterns << /gems\/spring/
 end
