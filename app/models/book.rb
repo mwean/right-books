@@ -11,10 +11,17 @@
 #  slug         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  publisher    :string
+#  amazon_link  :string
+#  description  :text
+#  editor_notes :text
+#  category     :integer
+#  isbn         :string
 #
 # Indexes
 #
-#  index_books_on_slug  (slug) UNIQUE
+#  index_books_on_category  (category)
+#  index_books_on_slug      (slug) UNIQUE
 #
 
 class Book < ActiveRecord::Base
