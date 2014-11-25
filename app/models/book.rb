@@ -29,6 +29,22 @@ class Book < ActiveRecord::Base
 
   friendly_id :slug_candidates, use: :slugged
 
+  def self.build_from_amazon(query)
+    search_result = AmazonSearch.new(query)
+
+    new(
+      title: search_result.title,
+      subtitle: search_result.subtitle,
+      author: search_result.author,
+      publish_date: search_result.publish_date,
+      cover_image: search_result.cover_image,
+      publisher: search_result.publisher,
+      description: search_result.description,
+      amazon_link: search_result.amazon_link,
+      isbn: search_result.isbn
+    )
+  end
+
   def self.new_releases
     order(publish_date: :desc).limit(6)
   end

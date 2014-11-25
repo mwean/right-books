@@ -1,13 +1,20 @@
 require 'faker'
 
 unless Book.any?
-  10.times do
-    create(
-      :book,
-      title: Faker::Company.catch_phrase.titleize,
-      subtitle: Faker::Company.catch_phrase.titleize,
-      author: Faker::Name.name,
-      publish_date: (1.month.ago.to_date..Date.yesterday).to_a.sample
-    )
+  titles = [
+    "A Nation of Takers",
+    "The Pity Party",
+    "Suicide of the West",
+    "Law of the Jungle",
+    "America in Retreat",
+    "The Black Book of the American Left",
+    "Stonewalled",
+    "Hitler's First Victims",
+    "The Undocumented Mark Steyn"
+  ]
+
+  titles.each do |title|
+    book = Book.build_from_amazon(title)
+    book.save
   end
 end

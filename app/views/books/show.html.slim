@@ -3,3 +3,8 @@
 h1= @book.title
 h2= @book.subtitle
 h3= @book.author
+
+p= @book.publish_date.strftime('%D')
+p= @book.publisher
+= link_to 'Amazon Link', @book.amazon_link
+== @book.description
