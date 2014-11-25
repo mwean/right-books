@@ -1,0 +1,34 @@
+.book {
+  @include span-columns(6);
+  @include omega(2n);
+
+  height: 100%;
+
+  @include media($medium) {
+    @include span-columns(4);
+    @include omega-reset(2n);
+    @include omega(3n);
+  }
+
+  @include media($large) {
+    @include span-columns(2);
+    @include omega-reset(3n);
+    @include omega(6n);
+  }
+
+  & > a {
+    color: black;
+  }
+
+  &__title {
+    font-size: 90%;
+  }
+
+  &__author {
+    font-size: 80%;
+  }
+
+  &__cover {
+    max-height: 170px;
+  }
+}

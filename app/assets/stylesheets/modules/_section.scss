@@ -1,0 +1,27 @@
+.section {
+  @include clearfix;
+
+  width: 100%;
+
+  border-bottom: 1px solid gray;
+
+  &__header {
+    @include clearfix;
+
+    padding: 0.5em 0;
+
+    border-bottom: 1px solid gray;
+  }
+
+  &__title {
+    float: left;
+  }
+
+  &__link {
+    float: right;
+  }
+
+  &__content {
+    padding: 1em 0;
+  }
+}

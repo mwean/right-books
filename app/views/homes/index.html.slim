@@ -1,4 +1,9 @@
-ul.new-releases
-  - @new_releases.each do |book|
-    li= link_to book, class: 'book' do
-      = render 'book', book: book
+.section
+  .section__header
+    .section__title New Releases
+    .section__link= link_to 'See More &#10148;'.html_safe, '#'
+
+  .section__content
+    - @new_releases.each do |book|
+      .book= link_to book do
+        = render 'book', book: book

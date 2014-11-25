@@ -23,7 +23,7 @@ class Book < ActiveRecord::Base
   friendly_id :slug_candidates, use: :slugged
 
   def self.new_releases
-    order(publish_date: :desc).limit(5)
+    order(publish_date: :desc).limit(6)
   end
 
   def slug_candidates

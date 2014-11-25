@@ -11,9 +11,13 @@ html
     = csrf_meta_tag
 
   body
-    - flash.each do |name, msg|
-      = raw(msg)
+    header
+      h1= link_to 'Right Books', root_path
 
-    = yield
+    main
+      - flash.each do |name, msg|
+        = raw(msg)
+
+      = yield
 
     = render 'javascript'
