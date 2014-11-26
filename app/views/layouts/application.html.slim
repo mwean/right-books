@@ -11,8 +11,13 @@ html
     = csrf_meta_tag
 
   body
-    header
-      h1= link_to 'Right Books', root_path
+    header.app-header
+      h1.app-header__title= link_to 'Right Books', root_path, class: 'app-header__link'
+
+      .app-header__nav
+        = link_to 'Browse', '#', class: 'app-header__link'
+        = link_to 'About', '#', class: 'app-header__link'
+        = link_to 'Contact', '#', class: 'app-header__link'
 
     main
       - flash.each do |name, msg|
