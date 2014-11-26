@@ -45,8 +45,8 @@ class Book < ActiveRecord::Base
     )
   end
 
-  def self.new_releases
-    order(publish_date: :desc).limit(6)
+  def self.new_releases(count = nil)
+    order(publish_date: :desc).limit(count)
   end
 
   def slug_candidates

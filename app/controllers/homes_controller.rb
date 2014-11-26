@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
   def index
-    @new_releases = Book.new_releases
+    @new_releases = Book.new_releases(6)
   end
 end
