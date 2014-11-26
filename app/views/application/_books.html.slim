@@ -1,0 +1,4 @@
+.books
+  - books.each do |book|
+    = link_to book, class: 'book' do
+      = render 'book', book: book

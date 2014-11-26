@@ -1,20 +1,21 @@
-require 'faker'
-
 unless Book.any?
-  titles = [
-    "A Nation of Takers",
-    "The Pity Party",
-    "Suicide of the West",
-    "Law of the Jungle",
-    "America in Retreat",
-    "The Black Book of the American Left",
-    "Stonewalled",
-    "Hitler's First Victims",
-    "The Undocumented Mark Steyn"
-  ]
+  titles = {
+    "A Nation of Takers"                  => ['Economics'],
+    "The Pity Party"                      => ['Political Philosophy'],
+    "Suicide of the West"                 => ['History'],
+    "Law of the Jungle"                   => ['Essentials'],
+    "America in Retreat"                  => ['History'],
+    "The Black Book of the American Left" => ['Political Philosophy'],
+    "Stonewalled"                         => ['History', 'Political Philosophy'],
+    "Hitler's First Victims"              => ['History'],
+    "The Undocumented Mark Steyn"         => ['Biography & Memoir']
+  }
 
-  titles.each do |title|
+  categories = Category.all
+
+  titles.each do |title, category_names|
     book = Book.build_from_amazon(title)
+    book.category_ids = categories.select { |cat| category_names.include?(cat.name) }.map(&:id)
     book.save
   end
 end

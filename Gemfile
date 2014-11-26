@@ -60,6 +60,7 @@ group :test, :development do
   gem 'byebug'
   gem 'coffeelint', '~> 0.4.0'
   gem 'dotenv-rails'
+  gem 'faker'
   gem 'konacha'
   gem 'pry'
   gem 'rails-assets-angular-mocks'
@@ -73,7 +74,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'guard', '~> 2.6.1'
   gem 'guard-livereload'
   gem 'launchy'

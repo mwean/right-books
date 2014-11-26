@@ -4,6 +4,12 @@
     .section__link= link_to 'See More &#10148;'.html_safe, new_releases_path
 
   .section__content
-    - @new_releases.each do |book|
-      = link_to book, class: 'book' do
-        = render 'book', book: book
+    = render 'books', books: @new_releases
+
+.section data-categories=true
+  .section__header
+    .section__title Browse Categories
+
+  .section__content
+    - categories.each do |category|
+      = link_to category.name, category, class: 'category'

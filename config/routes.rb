@@ -1,5 +1,6 @@
 RightBooks::Application.routes.draw do
   resources :books, only: :show
+  resources :categories, only: :show
   get :new_releases, controller: :books, action: :new_releases
 
   get '/*id',

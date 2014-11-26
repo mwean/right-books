@@ -15,13 +15,13 @@
 #  amazon_link  :string
 #  description  :text
 #  editor_notes :text
-#  category     :integer
 #  isbn         :string
+#  category_ids :integer          default("{}"), is an Array
 #
 # Indexes
 #
-#  index_books_on_category  (category)
-#  index_books_on_slug      (slug) UNIQUE
+#  index_books_on_category_ids  (category_ids)
+#  index_books_on_slug          (slug) UNIQUE
 #
 
 class Book < ActiveRecord::Base
@@ -49,7 +49,16 @@ class Book < ActiveRecord::Base
     order(publish_date: :desc).limit(count)
   end
 
+  def self.with_category_id(category_id)
+    array_str = Arel::Nodes.build_quoted("{#{category_id}}")
+    where(Arel::Nodes::InfixOperation.new('@>', arel_table[:category_ids], array_str))
+  end
+
   def slug_candidates
     [:title, %i(title author)]
+  end
+
+  def categories
+    Category.where(id: category_ids)
   end
 end

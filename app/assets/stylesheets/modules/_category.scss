@@ -1,0 +1,30 @@
+.category {
+  @include span-columns(6);
+  @include omega(2n);
+
+  height: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+
+  background-color: #ccc;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+
+  text-align: center;
+
+  @include media($medium) {
+    @include span-columns(4);
+    @include omega-reset(2n);
+    @include omega(3n);
+  }
+
+  @include media($large) {
+    @include span-columns(2);
+    @include omega-reset(3n);
+    @include omega(6n);
+  }
+
+  &:hover {
+    background-color: #999;
+  }
+}
