@@ -3,7 +3,7 @@
     .section__title New Releases
     .section__link= link_to 'See More &#10148;'.html_safe, '#'
 
-  .section__content
+  .section__content data-new-releases=true
     - @new_releases.each do |book|
-      .book= link_to book do
+      = link_to book, class: 'book' do
         = render 'book', book: book

@@ -77,6 +77,3 @@ class AmazonSearch
     }
   end
 end
-
-
-

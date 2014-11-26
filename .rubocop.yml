@@ -15,6 +15,9 @@ GuardClause:
 MethodCalledOnDoEndBlock:
   Enabled: true
 
+MethodLength:
+  Max: 12
+
 SymbolArray:
   Enabled: true
 
