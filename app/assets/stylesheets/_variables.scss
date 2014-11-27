@@ -2,7 +2,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 $dark-gray: #333;
 $medium-gray: #999;
-$light-gray: #DDD;
+$light-gray: #757575;
 
 // Font Colors
 $base-font-color: $dark-gray;
@@ -15,7 +15,6 @@ $hover-link-color: lighten($base-accent-color, 15);
 // Background Color
 $base-background-color: white;
 
-
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
 $sans-serif: "freight-sans-pro", sans-serif;
@@ -24,10 +23,25 @@ $base-font-family: $sans-serif;
 $header-font-family: $sans-serif;
 
 // Font sizes
+$base-font-size: 1em;
+$base-font-size--small: $base-font-size * .875;
+$base-font-size--medium: $base-font-size * 1.375;
 $title-size--small:   em(24);
 $title-size:          em(32);
 $title-size--medium:  em(40);
 $title-size--large:   em(48);
+
+// Line heights
+$base-line-height: $base-font-size * 1.5;
+$base-line-height--small:  1.7143em;
+$base-line-height--medium: 1.0909em;
+
+// Font weights
+
+$thin: 300;
+$semi-bold: 500;
+$bold: 700;
+
 
 // Margin + Padding Sizes
 $small:   10px;
