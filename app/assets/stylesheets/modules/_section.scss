@@ -1,7 +1,7 @@
 .section {
   @include outer-container;
 
-  padding: ($large + $medium) 0;
+  padding-top: ($large + $medium);
 
   &__header {
     @include clearfix;
@@ -15,6 +15,7 @@
 
   &__link {
     float: right;
+    font-weight: $semi-bold;
 
     & > img {
       margin-left: 6px;
@@ -46,8 +47,9 @@
   height: 230px;
   @include background-image(linear-gradient(-90deg, rgba(59,59,59,0.69) 0%, rgba(74,74,74,0.9) 52%, rgba(0,0,0,0.69) 100%), image-url("home-hero.png"));
   background-position: center 15%;
+ }
 
 .hero__title {
   padding-top: 55px;
-  font-weight: 300;
+  font-weight: $thin;
 }
