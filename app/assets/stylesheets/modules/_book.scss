@@ -2,9 +2,6 @@
   @include span-columns(2);
   @include omega(6n);
 
-  // @include span-columns(6);
-  // @include omega(2n);
-
   @include media(new-breakpoint(max-width 750px min-width 400px)) {
     @include span-columns(4);
     @include omega-reset(6n);
@@ -18,18 +15,6 @@
   }
 
   height: 100%;
-
-  // @include media($mobile) {
-  //   @include span-columns(4);
-  //   @include omega-reset(2n);
-  //   @include omega(3n);
-  // }
-
-  // @include media($tablet) {
-  //   @include span-columns(2);
-  //   @include omega-reset(3n);
-  //   @include omega(6n);
-  // }
 
   & > a {
     color: black;
