@@ -5,3 +5,11 @@ header {
 main {
   height: 100%;
 }
+
+.l-side-section {
+  @include span-columns(4);
+}
+
+.l-main-section {
+  @include span-columns(8);
+}

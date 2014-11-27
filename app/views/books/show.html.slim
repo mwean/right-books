@@ -1,10 +1,16 @@
-= image_tag @book.cover_image
+.l-side-section
+  = image_tag @book.cover_image
+  = link_to 'Buy', @book.amazon_link, class: 'btn'
+  p= @book.publisher
+  p= @book.publish_date.strftime('%D')
 
-h1= @book.title
-h2= @book.subtitle
-h3= @book.author
+.l-main-section
+  h1= @book.title
+  h2= @book.subtitle
+  h3= @book.author
 
-p= @book.publish_date.strftime('%D')
-p= @book.publisher
-= link_to 'Amazon Link', @book.amazon_link
-== @book.description
+  - if @book.editor_notes
+    == @book.editor_notes
+
+  h1 Description
+  == @book.description
