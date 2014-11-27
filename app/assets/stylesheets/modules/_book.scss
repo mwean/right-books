@@ -21,11 +21,16 @@
   }
 
   &__title {
-    font-size: 90%;
+    font-size: $base-font-size;
+    font-weight: $semi-bold;
+    line-height: 1.2em;
+    padding-top: 8px;
   }
 
   &__author {
-    font-size: 80%;
+    font-size: $base-font-size--small;
+    line-height: $base-line-height--small;
+    color: $light-gray;
   }
 
   &__cover {
