@@ -10,15 +10,20 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tag
 
-  body
+  body ng-app="rightBooks"
     header.primary-header
       .primary-header__inner
-        h5.primary-header__logo= link_to 'RightBooks', root_path, class: 'primary-header__link'
+        h5.primary-header__logo= link_to 'RightBooks', root_path
 
-        .primary-header__nav
-          = link_to 'Browse', '#', class: 'primary-header__link'
-          = link_to 'About', '#', class: 'primary-header__link'
-          = link_to 'Contact', '#', class: 'primary-header__link'
+        ul.nav
+          li= link_to 'Browse', '#', class: 'nav__link'
+          li= link_to 'About', '#', class: 'nav__link'
+          li= link_to 'Contact', '#', class: 'nav__link'
+          - if current_user
+            user-nav user-name=current_user.name sign-out-path=sign_out_path
+          - else
+            li= link_to 'Sign In', sign_in_path, class: 'nav__link'
+            li= link_to 'Sign Up', sign_up_path, class: 'nav__link'
 
     main
       - flash.each do |name, msg|

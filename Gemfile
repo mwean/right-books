@@ -31,7 +31,7 @@ gem 'rails-assets-normalize.css'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'simple_form', github: 'plataformatec/simple_form' # Fixes Rails deprecation notice
 gem 'slim-rails'
-gem 'sorcery'
+gem 'sorcery', github: 'NoamB/sorcery', branch: '0-8-x'
 gem 'uglifier'
 gem 'unicorn'
 gem 'vacuum'
@@ -58,6 +58,7 @@ end
 
 group :test, :development do
   gem 'byebug'
+  gem 'capybara-slow_finder_errors'
   gem 'coffeelint', '~> 0.4.0'
   gem 'dotenv-rails'
   gem 'faker'

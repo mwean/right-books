@@ -1,4 +1,5 @@
-Rails.application.config.sorcery.submodules = %i(session_timeout brute_force_protection)
+Rails.application.config.sorcery.submodules = %i(remember_me brute_force_protection)
+# reset_password
 
 Rails.application.config.sorcery.configure do |config|
   # -- core --
@@ -28,7 +29,7 @@ Rails.application.config.sorcery.configure do |config|
   # Use the last action as the beginning of session timeout.
   # Default: `false`
   #
-  config.session_timeout_from_last_action = true
+  # config.session_timeout_from_last_action = true
 
   # -- http_basic_auth --
   # What realm to display for which controller name. For example {"My App" => "Application"}
@@ -194,7 +195,7 @@ Rails.application.config.sorcery.configure do |config|
     # mailer class. Needed.
     # Default: `nil`
     #
-    # user.reset_password_mailer =
+    # user.reset_password_mailer = ResetPasswordMailer
 
     # reset password email method on your mailer class.
     # Default: `:reset_password_email`
@@ -237,7 +238,7 @@ Rails.application.config.sorcery.configure do |config|
     # How long the user should be banned. in seconds. 0 for permanent.
     # Default: `60 * 60`
     #
-    # user.login_lock_time_period =
+    user.login_lock_time_period = 5.minutes
 
     # Unlock token attribute name
     # Default: `:unlock_token`

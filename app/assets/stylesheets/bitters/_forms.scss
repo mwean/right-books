@@ -26,9 +26,7 @@ label {
   }
 }
 
-textarea,
-#{$all-text-inputs},
-select[multiple=multiple] {
+.input {
   @include box-sizing(border-box);
   @include transition(border-color);
   background-color: white;

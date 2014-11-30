@@ -1,8 +1,5 @@
 .primary-header {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 0 2em;
   border-bottom: 1px solid $medium-gray;
 
   &__inner {
@@ -14,17 +11,6 @@
 
     font-size: $base-font-size;
     text-transform: uppercase;
-  }
-
-  &__nav {
-    display: inline-block;
-    float: right;
-
-    font-size: $base-font-size--small;
-    text-transform: uppercase;
-
-    * + * {
-      margin-left: 3em;
-    }
+    line-height: $primary-header-height;
   }
 }

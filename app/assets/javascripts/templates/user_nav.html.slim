@@ -1,0 +1,5 @@
+li.nav__link
+  .nav__dropdown-link ng-click="toggle()" {{userName}}
+
+  ul.nav__dropdown ng-class="{'nav__dropdown--is-expanded': expanded}"
+    li: a.user-nav__link ng-href="{{signOutPath}}" Sign out
