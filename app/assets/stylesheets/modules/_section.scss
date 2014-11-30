@@ -1,7 +1,7 @@
 .section {
+  padding-top: $large;
+  padding-bottom: $large;
   @include outer-container;
-
-  padding-top: ($large + $medium);
 
   &__header {
     @include clearfix;
