@@ -6,7 +6,14 @@ class HomesController < ApplicationController
   protected
 
   def categories
-    Category.all.reject { |category| category.name == 'Culture' }
+    names = [
+      'History',
+      'Biography & Memoir',
+      'Political Philosophy',
+      'Economics',
+      'Culture'
+    ]
+    Category.where(name: names)
   end
 
   helper_method :categories
