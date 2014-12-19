@@ -1,0 +1,9 @@
+li.comment
+  span> {{comment.userName}}
+  ' at {{comment.timeInWords}}: {{comment.body}}
+  a href="" ng-click="toggleExpanded()" ng-if="showReplyButton()" Reply
+
+  form name="comment-reply-form" ng-submit="addComment()" ng-if="replyExpanded"
+    textarea name="new-comment" ng-model="newComment.body" auto-focus="replyExpanded"
+    input type="submit"
+    a href="" ng-click="toggleExpanded()" Cancel

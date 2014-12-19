@@ -26,6 +26,8 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :comments
+
   authenticates_with_sorcery!
 
   validates :email, uniqueness: true, presence: true

@@ -1,0 +1,13 @@
+.comment {
+  padding: 1em 1em 0;
+
+  background-color: #ccc;
+
+  & > a {
+    font-weight: 700;
+  }
+
+  & > .comments {
+    margin-left: 1em;
+  }
+}

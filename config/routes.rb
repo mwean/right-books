@@ -1,5 +1,8 @@
 RightBooks::Application.routes.draw do
-  resources :books, only: :show
+  resources :books, only: :show do
+    member { post :comment }
+  end
+
   resources :categories, only: :show
 
   resources :users, only: :create do

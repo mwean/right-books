@@ -27,6 +27,8 @@
 class Book < ActiveRecord::Base
   extend FriendlyId
 
+  has_many :comments
+
   friendly_id :slug_candidates, use: :slugged
 
   def self.build_from_amazon(query)
@@ -60,5 +62,9 @@ class Book < ActiveRecord::Base
 
   def categories
     Category.where(id: category_ids)
+  end
+
+  def normalize_friendly_id(value)
+    value.to_s.gsub(/(?<=\w)'s\b/i, 's').parameterize
   end
 end
