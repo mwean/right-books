@@ -1,4 +1,4 @@
-angular.module('rightBooks').controller 'signInCtrl', ($scope, $http, csrfToken, gonData) ->
+signInCtrl = ($scope, $http, gonData) ->
   $scope.invalidEmail = false
   $scope.email = gonData.email
   $scope.invalidPassword = gonData.email?
@@ -11,3 +11,6 @@ angular.module('rightBooks').controller 'signInCtrl', ($scope, $http, csrfToken,
         $scope.invalidEmail = false
       else
         $scope.invalidEmail = true
+
+signInCtrl.$inject = ['$scope', '$http', 'gonData']
+angular.module('rightBooks').controller('signInCtrl', signInCtrl)

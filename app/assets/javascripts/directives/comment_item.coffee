@@ -30,4 +30,5 @@ commentItem = (gonData, $compile, $http, csrfToken, Comment) ->
         scope.newComment = {}
         scope.replyExpanded = false
 
+commentItem.$inject = ['gonData', '$compile', '$http', 'csrfToken', 'Comment']
 angular.module('rightBooks').directive('commentItem', commentItem)
