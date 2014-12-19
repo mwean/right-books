@@ -6,14 +6,15 @@ class HomesController < ApplicationController
   protected
 
   def categories
-    names = [
+    category_names = [
       'History',
       'Biography & Memoir',
       'Political Philosophy',
       'Economics',
       'Culture'
     ]
-    Category.where(name: names)
+
+    Category.where(name: category_names)
   end
 
   helper_method :categories

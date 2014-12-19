@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 feature 'home page' do
-  let(:home_page) { HomePage.new }
+  given(:home_page) { HomePage.new }
 
   describe 'with a book' do
-    background do
-      @book = create(:book)
-    end
+    background { @book = create(:book) }
 
     scenario 'user clicks on new release book and goes to book page' do
       home_page.load

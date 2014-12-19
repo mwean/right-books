@@ -1,5 +1,13 @@
 FactoryGirl.define do
   factory :category do
-    name { Faker::Commerce.department }
+    NAMES = [
+      'History',
+      'Biography & Memoir',
+      'Political Philosophy',
+      'Economics',
+      'Culture'
+    ]
+
+    name { NAMES.sample }
   end
 end
