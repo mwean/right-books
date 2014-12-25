@@ -6,10 +6,25 @@ main {
   height: 100%;
 }
 
+.l-constrained {
+  @include outer-container;
+
+  max-width: 60%;
+  margin-top: $xl;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.l-wide {
+  @include fill-parent;
+}
+
 .l-side-section {
-  @include span-columns(4);
+  @include span-columns(3);
 }
 
 .l-main-section {
-  @include span-columns(8);
+  @include outer-container();
+  @include span-columns(9);
+  padding-left: 40px;
 }
