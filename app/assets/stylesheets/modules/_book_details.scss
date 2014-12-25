@@ -1,0 +1,44 @@
+.book-details__section {
+  margin-bottom: 54px;
+}
+
+.book-details__title {
+  font-size: $h1-font-size;
+  margin-bottom: 5px;
+}
+
+.book-details__subtitle {
+  font-size: $h2-font-size;
+  font-weight: $semi-bold;
+  margin-bottom: 5px;
+}
+
+.book-details__author {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: $semi-bold;
+}
+
+.book-details__cover {
+  margin-bottom: 3%;
+}
+
+.book-details__publish-details {
+  font-size: $base-font-size--small;
+  line-height: $base-line-height--small;
+}
+
+.book-details__publish-details__title {
+  @extend .book-details__publish-details;
+  margin-top: 35px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: $thin;
+  // color: $light-gray;
+}
+
+.buy-button {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
