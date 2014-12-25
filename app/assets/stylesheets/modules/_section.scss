@@ -1,7 +1,15 @@
 .section {
-  padding-top: $large;
-  padding-bottom: $large;
-  @include outer-container;
+  @include outer-container();
+  padding: $large 0;
+
+  max-width: 80%;
+  margin: 0 auto;
+
+  @include media(new-breakpoint(max-width 1000px min-width 750px)) {
+    max-width: 90%;
+    padding-left: $medium;
+    padding-right: $medium;
+  }
 
   &__header {
     @include clearfix;
@@ -29,15 +37,9 @@
   &__content {
     padding: 1em 0;
   }
-
-  &--wide {
-    width: 100%
-  }
 }
 
 .section--hero {
-  @extend .section--wide;
-
   background-size: 100% auto;
   overflow-y: hidden;
 
