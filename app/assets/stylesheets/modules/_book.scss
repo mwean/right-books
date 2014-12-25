@@ -1,17 +1,19 @@
 .book {
   @include span-columns(2);
-  @include omega(6n);
+  @include omega(8n);
 
   @include media(new-breakpoint(max-width 750px min-width 400px)) {
     @include span-columns(4);
     @include omega-reset(6n);
     @include omega(3n);
+    margin-bottom: 3%;
   }
 
   @include media(new-breakpoint(max-width 400px)) {
     @include span-columns(6);
     @include omega(2n);
     @include omega-reset(3n);
+    margin-bottom: 5%;
   }
 
   height: 100%;
@@ -35,5 +37,13 @@
 
   &__cover {
     max-height: 170px;
+
+    @include media($compressed-desktop) {
+      max-height: 140px;
+    }
+
+    @include media(new-breakpoint(max-width 1000px min-width 750px)) {
+      max-height: 120px;
+    }
   }
 }
