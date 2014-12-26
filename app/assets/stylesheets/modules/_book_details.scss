@@ -3,19 +3,16 @@
 }
 
 .book-details__title {
-  font-size: $h1-font-size;
   margin-bottom: 5px;
 }
 
 .book-details__subtitle {
-  font-size: $h2-font-size;
-  font-weight: $semi-bold;
-  margin-bottom: 5px;
+  font-weight: $bold;
+  margin-bottom: 10px;
 }
 
 .book-details__author {
-  font-size: $base-font-size;
-  line-height: $base-line-height;
+  font-size: $h2-font-size;
   font-weight: $semi-bold;
 }
 
@@ -34,7 +31,6 @@
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-weight: $thin;
-  // color: $light-gray;
 }
 
 .buy-button {
