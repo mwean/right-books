@@ -11,12 +11,12 @@
     .book-details__section
       h1.book-details__title= @book.title
       h2.book-details__subtitle= @book.subtitle
-      h3.book-details__author= @book.author
+      h2.book-details__author= @book.author
 
       - if @book.editor_notes
         == @book.editor_notes
     .book-details__section
-      h3 Book Description
+      h2 Book Description
       p== @book.description
 
   h1 Description
