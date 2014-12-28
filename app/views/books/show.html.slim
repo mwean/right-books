@@ -3,9 +3,10 @@
     .book-details__cover
       = image_tag @book.cover_image
     = link_to 'Buy', @book.amazon_link, class: ['btn', 'buy-button']
-    .book-details__publish-details__title Publication Details
-    .book-details__publish-details= @book.publisher
-    .book-details__publish-details Published on #{@book.publish_date.strftime('%D')}
+    .book-details__sidebar-details
+      .book-details__sidebar-details__title Publication Details
+      = @book.publisher
+      p Published #{@book.publish_date.strftime('%D')}
 
   .l-main-section
     .book-details__section

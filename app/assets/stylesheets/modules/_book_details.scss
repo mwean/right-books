@@ -20,13 +20,13 @@
   margin-bottom: 3%;
 }
 
-.book-details__publish-details {
+.book-details__sidebar-details {
   font-size: $base-font-size--small;
   line-height: $base-line-height--small;
 }
 
-.book-details__publish-details__title {
-  @extend .book-details__publish-details;
+.book-details__sidebar-details__title {
+  @extend .book-details__sidebar-details;
   margin-top: 35px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
