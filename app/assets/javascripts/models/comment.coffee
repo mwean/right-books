@@ -7,5 +7,11 @@ angular.module('rightBooks').factory 'Comment', ->
       @time        = moment.unix(@timestamp)
       @userName    = data.userName
       @date        = moment(new Date(@timestamp * 1000).setHours(0, 0, 0, 0))
-      @timeInWords = @time.format('M/D/YY h:mm A')
+      @dateInWords = formatDate()
       @children    = _.map(data.children, (child) -> new Comment(child))
+
+    formatDate: ->
+      if @time.year() == moment().year()
+        @time.format('MMMM Do')
+      else
+        @time.format('MMMM Do, YYYY')
