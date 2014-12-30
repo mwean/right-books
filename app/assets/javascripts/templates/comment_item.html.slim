@@ -1,7 +1,7 @@
 li.comment
   span.comment__author> {{comment.userName}}
-  span.comment__date at {{comment.dateInWords}}:
-  | {{comment.body}}
+  span.comment__date> on {{comment.dateInWords}}:
+  ' {{comment.body}}
   a href="" ng-click="toggleExpanded()" ng-if="showReplyButton()" Reply
 
   form name="comment-reply-form" ng-submit="addComment()" ng-if="replyExpanded"
