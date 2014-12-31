@@ -17,6 +17,7 @@
 #  lock_expires_at                 :datetime
 #  unlock_token                    :string
 #  name                            :string
+#  admin                           :boolean          default("false")
 #
 # Indexes
 #

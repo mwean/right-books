@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226012133) do
+ActiveRecord::Schema.define(version: 20141231210552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20141226012133) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                                       null: false
-    t.string   "crypted_password",                            null: false
-    t.string   "salt",                                        null: false
+    t.string   "email",                                           null: false
+    t.string   "crypted_password",                                null: false
+    t.string   "salt",                                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20141226012133) do
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
     t.string   "name"
+    t.boolean  "admin",                           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

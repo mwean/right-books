@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature 'admin book list page' do
+  given(:user) { create(:user, :admin) }
   given!(:book) { create(:book) }
   given(:admin_books_page) { Admin::BooksPage.new }
+
+  background { sign_in_user(user) }
 
   scenario 'admin sees a list of existing books and adds a new one', :js do
     new_book_page = Admin::NewBookPage.new

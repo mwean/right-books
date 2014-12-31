@@ -20,3 +20,9 @@ unless Book.any?
     book.save
   end
 end
+
+User.where(email: 'admin@example.com').first_or_create(
+  admin: true,
+  password: 'testme',
+  name: 'Admin'
+)
