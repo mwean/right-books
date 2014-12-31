@@ -17,6 +17,8 @@ MethodCalledOnDoEndBlock:
 
 MethodLength:
   Max: 12
+  Exclude:
+    - lib/fake_amazon.rb
 
 SymbolArray:
   Enabled: true

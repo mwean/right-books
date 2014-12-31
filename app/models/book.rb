@@ -58,6 +58,18 @@ class Book < ActiveRecord::Base
     [:title, %i(title authors_sentence)]
   end
 
+  def authors_list
+    authors.join(', ')
+  end
+
+  def authors_list=(list)
+    self.authors = list.split(/,\s*/)
+  end
+
+  def category_ids=(ids)
+    ids.is_a?(Array) ? super : super(ids.split(/,\s*/))
+  end
+
   def authors_sentence
     authors.to_sentence
   end

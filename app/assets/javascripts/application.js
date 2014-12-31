@@ -1,4 +1,5 @@
 //= require vendor
+//= require_directory ./redactor
 //= require_directory ./templates
 //= require right_books
 //= require_directory ./values

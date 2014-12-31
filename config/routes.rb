@@ -17,6 +17,12 @@ RightBooks::Application.routes.draw do
   post :sign_in, controller: :sessions, action: :create
   get :sign_out, controller: :sessions, action: :destroy
 
+  namespace :admin do
+    resources :books do
+      collection { get :search }
+    end
+  end
+
   get '/*id',
       controller: :pages,
       action: :show,
