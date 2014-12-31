@@ -14,7 +14,8 @@ unless Book.any?
   categories = Category.all
 
   titles.each do |title, category_names|
-    book = Book.build_from_amazon(title)
+    amazon_result = AmazonSearch.new(title).results.first
+    book = Book.from_amazon_result(amazon_result)
     book.category_ids = categories.select { |cat| category_names.include?(cat.name) }.map(&:id)
     book.save
   end
