@@ -11,7 +11,7 @@ expandableSection = ->
 
     scope.toggle = ->
       newHeight = if scope.expanded then '' else expandedHeight
-      element.css(maxHeight: newHeight)
+      element.css({ maxHeight: newHeight })
       scope.expanded = !scope.expanded
 
 angular.module('rightBooks').directive('expandableSection', expandableSection)
