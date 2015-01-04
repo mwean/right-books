@@ -25,6 +25,13 @@ main {
 }
 
 .l-main-section {
+  & > * + * {
+    padding-top: $large;
+  }
+}
+
+.l-main-section--constrained {
+  @extend .l-main-section;
   @include outer-container();
   @include span-columns(9);
   padding-left: 40px;
