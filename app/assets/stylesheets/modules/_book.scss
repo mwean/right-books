@@ -1,6 +1,6 @@
 .book {
   @include span-columns(2);
-  @include omega(8n);
+  @include omega(6n);
 
   @include media(new-breakpoint(max-width 750px min-width 400px)) {
     @include span-columns(4);
