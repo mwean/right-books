@@ -50,10 +50,6 @@ label {
   }
 }
 
-textarea {
-  resize: vertical;
-}
-
 input[type="search"] {
   @include appearance(none);
 }
