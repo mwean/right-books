@@ -8,8 +8,8 @@
       | See More
       = image_tag("chevron.svg")
 
-  .section__content
-    = render 'books', books: @new_releases
+    .section__content
+      = render 'books', books: @new_releases, book_class: 'book'
 
 hr
 .section data-categories=true
