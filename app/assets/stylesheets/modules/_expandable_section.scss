@@ -10,12 +10,21 @@
     bottom: 0;
     width: 100%;
 
+    display: inline-block;
+
     background-color: white;
     cursor: pointer;
 
     text-align: right;
-    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: $base-font-size--small;
     font-weight: 700;
-    color: $medium-gray;
+    color: $expandable-link-color;
+
+    &:hover {
+      color: $hover-expandable-link-color;
+    }
   }
 }
+
+
