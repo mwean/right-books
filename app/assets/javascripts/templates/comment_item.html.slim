@@ -1,7 +1,7 @@
-li.comment
+li.comment ng-class="{'comment--reply': comment.reply}"
   span.comment__author> {{comment.userName}}
   span.comment__date> on {{comment.dateInWords}}:
-  ' {{comment.body}}
+  p {{comment.body}}
   a href="" ng-click="toggleExpanded()" ng-if="showReplyButton()" Reply
 
   form name="comment-reply-form" ng-submit="addComment()" ng-if="replyExpanded"

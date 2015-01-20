@@ -9,6 +9,7 @@ angular.module('rightBooks').factory 'Comment', ->
       @date        = moment(new Date(@timestamp * 1000).setHours(0, 0, 0, 0))
       @dateInWords = @formatDate()
       @children    = _.map(data.children, (child) -> new Comment(child))
+      @reply        = data.reply
 
     formatDate: ->
       if @time.year() == moment().year()

@@ -2,6 +2,9 @@
   padding: 1em 1em 0;
 
   background-color: #ccc;
+  &:not(.comment--reply) {
+    border-bottom: 1px solid $faint-gray;
+  }
 
   & > a {
     font-weight: 700;
