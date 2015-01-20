@@ -4,14 +4,17 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #757575;
 $faint-gray: #d0d0d0;
+$blue: #477DCA;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $dark-gray;
+$base-accent-color: #a91d1d;
 
 // Link Colors
-$base-link-color: $base-accent-color;
+$base-link-color: $dark-gray;
 $hover-link-color: lighten($base-accent-color, 15);
+$expandable-link-color: $blue;
+$hover-expandable-link-color: darken($expandable-link-color, 15);
 
 // Background Color
 $base-background-color: white;
