@@ -1,10 +1,6 @@
 .primary-header {
   padding: 0 2em;
-  border-bottom: 1px solid $medium-gray;
-
-  &__inner {
-    @include outer-container;
-  }
+  border-bottom: 1px rgba(0,0,0,0.1) solid;
 
   &__logo {
     display: inline-block;
