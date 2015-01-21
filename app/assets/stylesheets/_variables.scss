@@ -12,7 +12,7 @@ $base-accent-color: #a91d1d;
 
 // Link Colors
 $base-link-color: $dark-gray;
-$hover-link-color: lighten($base-accent-color, 15);
+$hover-link-color: lighten($base-link-color, 15);
 $expandable-link-color: $blue;
 $hover-expandable-link-color: darken($expandable-link-color, 15);
 
