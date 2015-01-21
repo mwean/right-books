@@ -1,5 +1,5 @@
-li.comment
-  span.comment__author> {{comment.userName}}
+li.comment ng-class="{ 'comment--admin': comment.user.admin }"
+  span.comment__author> {{comment.user.fullName}}
   span.comment__date> on {{comment.dateInWords}}:
   ' {{comment.body}}
   a href="" ng-click="toggleExpanded()" ng-if="showReplyButton()" Reply

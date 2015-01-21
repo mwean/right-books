@@ -1,6 +1,6 @@
 class CommentSerializer < ActiveModel::Serializer
   attr_reader :children
-  attributes :id, :body, :timestamp, :user_name, :children, :reply
+  attributes :id, :body, :timestamp, :user, :children, :reply
 
   def initialize(object, options = {})
     @children = options.delete(:children)
@@ -11,11 +11,11 @@ class CommentSerializer < ActiveModel::Serializer
     object.created_at.to_i
   end
 
-  def user_name
-    object.user.full_name
-  end
-
   def reply
     object.parent.present?
+  end
+
+  def user
+    UserSerializer.new(object.user, root: false)
   end
 end

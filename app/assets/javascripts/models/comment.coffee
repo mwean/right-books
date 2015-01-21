@@ -5,7 +5,7 @@ angular.module('rightBooks').factory 'Comment', ->
       @body        = data.body
       @timestamp   = data.timestamp
       @time        = moment.unix(@timestamp)
-      @userName    = data.userName
+      @user        = data.user
       @date        = moment(new Date(@timestamp * 1000).setHours(0, 0, 0, 0))
       @dateInWords = @formatDate()
       @children    = _.map(data.children, (child) -> new Comment(child))
