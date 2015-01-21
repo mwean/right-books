@@ -46,11 +46,12 @@ feature 'home page' do
     sign_up_page.email_field.set(user.email)
     sign_up_page.password_field.set(user.password)
     sign_up_page.password_confirmation_field.set(user.password)
-    sign_up_page.name_field.set(user.name)
+    sign_up_page.first_name_field.set(user.first_name)
+    sign_up_page.last_name_field.set(user.last_name)
     sign_up_page.submit_button.click
 
     expect(home_page).to be_displayed
-    expect(home_page.navbar).to have_content(user.name.upcase)
+    expect(home_page.navbar).to have_content(user.first_name.upcase)
     expect(home_page.navbar).to have_no_sign_up_link
     expect(home_page.navbar).to have_no_sign_in_link
   end

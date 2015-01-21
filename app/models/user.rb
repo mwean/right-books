@@ -16,8 +16,9 @@
 #  failed_logins_count             :integer          default("0")
 #  lock_expires_at                 :datetime
 #  unlock_token                    :string
-#  name                            :string
 #  admin                           :boolean          default("false")
+#  first_name                      :string
+#  last_name                       :string
 #
 # Indexes
 #
@@ -35,5 +36,10 @@ class User < ActiveRecord::Base
   validates :password, presence: :true, on: :create
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, on: :create
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

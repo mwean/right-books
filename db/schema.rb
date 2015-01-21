@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231210552) do
+ActiveRecord::Schema.define(version: 20150121050051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
     t.string   "cover_image_url"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20141231210552) do
   add_index "books", ["category_ids"], name: "index_books_on_category_ids", using: :gin
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.datetime "created_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141231210552) do
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "book_id"
     t.text     "body"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141231210552) do
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                                           null: false
     t.string   "crypted_password",                                null: false
     t.string   "salt",                                            null: false
@@ -71,8 +71,9 @@ ActiveRecord::Schema.define(version: 20141231210552) do
     t.integer  "failed_logins_count",             default: 0
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
-    t.string   "name"
     t.boolean  "admin",                           default: false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

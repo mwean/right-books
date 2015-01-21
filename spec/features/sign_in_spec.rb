@@ -16,6 +16,6 @@ feature 'signing in' do
     sign_in_page.submit_button.click
 
     expect(home_page).to be_displayed
-    expect(home_page.navbar).to have_content(user.name.upcase)
+    expect(home_page.navbar).to have_content(user.first_name.upcase)
   end
 end

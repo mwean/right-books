@@ -38,7 +38,7 @@ feature 'book page' do
       comments_section.wait_for_comments(nil, count: 2)
       expect(comments_section.comment_field.text).to be_blank
       expect(comments_section).to have_content(new_comment.body)
-      expect(comments_section).to have_content(user.name)
+      expect(comments_section).to have_content(user.full_name)
 
       existing_comment.reply_link.click
       existing_comment.reply_field.set(reply_comment.body)
@@ -48,7 +48,7 @@ feature 'book page' do
       reply = existing_comment.replies.first
 
       expect(reply).to have_content(reply_comment.body)
-      expect(reply).to have_content(user.name)
+      expect(reply).to have_content(user.full_name)
 
       book_page.load(slug: book.slug)
 
