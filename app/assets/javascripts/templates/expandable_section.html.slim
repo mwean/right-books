@@ -1,5 +1,5 @@
 .expandable-section
   ng-transclude
   .expandable-section__expand-link ng-click="toggle()"
-    span ng-hide="expanded" More &rsaquo;
-    span ng-show="expanded" &lsaquo; Less
+    span.right-arrow ng-hide="expanded" More
+    span.left-arrow ng-show="expanded" Less
