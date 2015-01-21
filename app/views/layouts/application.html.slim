@@ -25,6 +25,8 @@ html
           li= link_to 'Contact', '#', class: 'nav__link'
           - if current_user
             user-nav user-name=current_user.first_name sign-out-path=sign_out_path
+            - if current_user.admin?
+              li= link_to 'Admin', admin_root_path
           - else
             li= link_to 'Sign In', sign_in_path, class: 'nav__link'
             li= link_to 'Sign Up', sign_up_path, class: 'nav__link'

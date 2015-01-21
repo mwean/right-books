@@ -18,6 +18,8 @@ RightBooks::Application.routes.draw do
   get :sign_out, controller: :sessions, action: :destroy
 
   namespace :admin do
+    root controller: :books, action: :index
+
     resources :books do
       collection { get :search }
     end
