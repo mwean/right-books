@@ -16,10 +16,6 @@ main {
   margin-right: auto;
 }
 
-.l-wide {
-  @include fill-parent;
-}
-
 .l-side-section {
   @include span-columns(3);
 }
