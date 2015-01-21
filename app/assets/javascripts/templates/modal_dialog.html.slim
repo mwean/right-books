@@ -1,0 +1,5 @@
+.modal ng-show="showDialog"
+  .modal__overlay ng-click="hideModal()"
+  .modal__dialog
+    button.modal__close-btn ng-click="hideModal()" X
+    .modal__content ng-transclude=true

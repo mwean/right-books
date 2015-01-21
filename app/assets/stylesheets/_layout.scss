@@ -12,4 +12,14 @@ main {
 
 .l-main-section {
   @include span-columns(8);
+  @include omega;
+}
+
+.l-full-section {
+  @include span-columns(12);
+  @include omega;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
 }

@@ -1,5 +1,5 @@
 .l-side-section
-  = image_tag @book.cover_image
+  = image_tag @book.cover_image_url
   = link_to 'Buy', @book.amazon_link, class: 'btn'
   p= @book.publisher
   p= @book.publish_date.strftime('%D')
@@ -7,7 +7,7 @@
 .l-main-section
   h1= @book.title
   h2= @book.subtitle
-  h3= @book.author
+  h3= @book.authors_sentence
 
   - if @book.editor_notes
     == @book.editor_notes

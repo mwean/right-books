@@ -1,0 +1,7 @@
+input#new-book-search.new-book__search-field type="text" ng-model="query" autofocus=true
+
+ul
+  li.search-result ng-repeat="book in results" ng-click="addBook(book)"
+    img.search-result__cover ng-src="{{ book.coverImageUrl }}"
+    .search-result__title {{ book.fullTitle }}
+    .search-result__authors {{ book.authorsSentence }}

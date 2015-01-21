@@ -1,5 +1,5 @@
-= image_tag book.cover_image, class: 'book__cover'
+= image_tag book.cover_image_url, class: 'book__cover'
 
 .book__info
   .book__title= book.title
-  .book__author= book.author
+  .book__authors= book.authors_sentence

@@ -1,0 +1,33 @@
+$cover-width: 50px;
+
+%result-text {
+  display: inline-block;
+  width: 100%;
+  padding-left: $cover-width + 15;
+}
+
+.search-result {
+  min-height: 75px;
+  margin-bottom: 10px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(black, 0.5)
+  }
+
+  &__cover {
+    position: absolute;
+    width: $cover-width;
+  }
+
+  &__title {
+    @extend %result-text;
+  }
+
+  &__authors {
+    @extend %result-text;
+
+    font-size: 80%;
+  }
+}

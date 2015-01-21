@@ -4,5 +4,10 @@ FactoryGirl.define do
     name { Faker::Name.name }
     password { Faker::Internet.password }
     password_confirmation { password }
+    admin false
+
+    trait(:admin) do
+      admin true
+    end
   end
 end

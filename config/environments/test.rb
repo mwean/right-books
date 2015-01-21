@@ -21,6 +21,10 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.assets.debug = false
+  config.assets.js_compressor = :uglifier
+  config.assets.digest = false
+
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 
