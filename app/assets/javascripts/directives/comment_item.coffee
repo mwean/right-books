@@ -14,7 +14,7 @@ commentItem = (gonData, $compile, $http, csrfToken, Comment) ->
       element.append(cloned)
 
     scope.showReplyButton = ->
-      !scope.replyExpanded && gonData.signedIn
+      !scope.comment.reply && !scope.replyExpanded && gonData.signedIn
 
     scope.toggleExpanded = ->
       scope.replyExpanded = !scope.replyExpanded
