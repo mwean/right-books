@@ -11,7 +11,6 @@ main {
   @include outer-container;
 
   max-width: 60%;
-  margin-top: $xl;
   margin-left: auto;
   margin-right: auto;
 }
@@ -21,14 +20,15 @@ main {
 }
 
 .l-main-section {
-  & > * + * {
-    padding-top: $large;
-  }
+  padding-top: $xl;
 }
 
 .l-main-section--constrained {
-  @extend .l-main-section;
   @include outer-container();
   @include span-columns(9);
   padding-left: 40px;
+
+  & > * + * {
+    padding-top: $large;
+  }
 }
