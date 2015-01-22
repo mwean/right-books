@@ -1,5 +1,5 @@
-.l-constrained
-  .l-side-section
+.l-main-section.l-constrained
+  .l-side-section.section
     .book-details__cover
       = image_tag @book.cover_image
     = link_to 'Buy', @book.amazon_link, class: ['btn', 'buy-button']
@@ -8,19 +8,17 @@
       = @book.publisher
       p Published #{@book.publish_date.strftime('%D')}
 
-  .l-main-section
-    .book-details__section
+  .l-main-section--constrained
+    .section
       h1.book-details__title= @book.title
       h2.book-details__subtitle= @book.subtitle
       h2.book-details__author= @book.author
 
       - if @book.editor_notes
         == @book.editor_notes
-    .book-details__section
-      h2 Book Description
-      p== @book.description
+    .section
+      h2.section__header Book Description
+      expandable-section.ng-cloak== @book.description
 
-  h1 Description
-  expandable-section.ng-cloak== @book.description
-
-  comments-section
+    .section
+      comments-section
