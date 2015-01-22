@@ -1,0 +1,20 @@
+.right-arrow {
+  &:after {
+    content: "\203A";
+    margin-left: 3px;
+  }
+}
+
+.left-arrow {
+  &:before {
+    content: "\2039";
+    margin-right: 3px;
+  }
+}
+
+.right-arrow:after, .left-arrow:before {
+  position: relative;
+  top: -1px;
+  line-height: 1;
+  display: inline-block;
+}

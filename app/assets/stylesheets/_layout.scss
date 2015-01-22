@@ -4,15 +4,33 @@ header {
 
 main {
   height: 100%;
+  padding-bottom: 100px;
+}
+
+.l-constrained {
+  @include outer-container;
+
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .l-side-section {
-  @include span-columns(4);
+  @include span-columns(3);
 }
 
 .l-main-section {
-  @include span-columns(8);
-  @include omega;
+  padding-top: $xl;
+}
+
+.l-main-section--constrained {
+  @include outer-container();
+  @include span-columns(9);
+  padding-left: 40px;
+
+  & > * + * {
+    padding-top: $large;
+  }
 }
 
 .l-full-section {

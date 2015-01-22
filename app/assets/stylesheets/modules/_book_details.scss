@@ -1,0 +1,36 @@
+.book-details__title {
+  margin-bottom: 5px;
+}
+
+.book-details__subtitle {
+  font-weight: $bold;
+  margin-bottom: 10px;
+}
+
+.book-details__author {
+  font-size: $h2-font-size;
+  font-weight: $semi-bold;
+}
+
+.book-details__cover {
+  margin-bottom: 3%;
+}
+
+.book-details__sidebar-details {
+  font-size: $base-font-size--small;
+  line-height: $base-line-height--small;
+}
+
+.book-details__sidebar-details__title {
+  @extend .book-details__sidebar-details;
+  margin-top: 35px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: $thin;
+}
+
+.buy-button {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}

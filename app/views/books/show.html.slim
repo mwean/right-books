@@ -1,18 +1,25 @@
-.l-side-section
-  = image_tag @book.cover_image_url
-  = link_to 'Buy', @book.amazon_link, class: 'btn'
-  p= @book.publisher
-  p= @book.publish_date.strftime('%D')
+.l-main-section.l-constrained
+  .l-side-section.section
+    .book-details__cover
+      = image_tag @book.cover_image_url
+    = link_to 'Buy', @book.amazon_link, class: ['btn', 'buy-button']
+    .book-details__sidebar-details
+      .book-details__sidebar-details__title Publication Details
+      = @book.publisher
+      p Published #{@book.publish_date.strftime('%D')}
 
-.l-main-section
-  h1= @book.title
-  h2= @book.subtitle
-  h3= @book.authors_sentence
+  .l-main-section--constrained
+    .section
+      h1.book-details__title= @book.title
+      h2.book-details__subtitle= @book.subtitle
+      h2.book-details__author= @book.authors_sentence
 
-  - if @book.editor_notes
-    == @book.editor_notes
+      - if @book.editor_notes
+        == @book.editor_notes
 
-  h1 Description
-  expandable-section.ng-cloak== @book.description
+    .section
+      h2.section__header Book Description
+      expandable-section.ng-cloak== @book.description
 
-  comments-section
+    .section
+      comments-section

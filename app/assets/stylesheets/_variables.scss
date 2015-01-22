@@ -3,14 +3,18 @@
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #757575;
+$faint-gray: #d0d0d0;
+$blue: #477DCA;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $dark-gray;
+$base-accent-color: #a91d1d;
 
 // Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: lighten($base-accent-color, 15);
+$base-link-color: $dark-gray;
+$hover-link-color: lighten($base-link-color, 15);
+$expandable-link-color: $blue;
+$hover-expandable-link-color: darken($expandable-link-color, 15);
 
 // Background Color
 $base-background-color: white;
@@ -23,24 +27,23 @@ $base-font-family: $sans-serif;
 $header-font-family: $sans-serif;
 
 // Font sizes
-$base-font-size: 1em;
-$base-font-size--small: $base-font-size * .875;
+$base-font-size: 18px;
+$base-font-size--small: $base-font-size * .7777;
 $base-font-size--medium: $base-font-size * 1.375;
-$title-size--small:   em(24);
+$title-size--small:   em(20);
 $title-size:          em(32);
 $title-size--medium:  em(40);
 $title-size--large:   em(48);
 
 // Line heights
 $base-line-height: $base-font-size * 1.5;
-$base-line-height--small:  1.7143em;
+$base-line-height--small:  22px;
 $base-line-height--medium: 1.0909em;
 
 // Font weights
 $thin: 300;
 $semi-bold: 500;
 $bold: 700;
-
 
 // Margin + Padding Sizes
 $small:   10px;

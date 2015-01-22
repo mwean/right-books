@@ -1,20 +1,33 @@
 .section--hero
   h1.hero__title Books of interest to conservative readers.
-.section data-new-releases=true
-  .section__header
-    h3.section__title New Releases
-    = link_to new_releases_path, class: "section__link" do
-      | See More
-      = image_tag("chevron.svg")
 
-  .section__content
-    = render 'books', books: @new_releases
+.l-main-section
+  .section data-new-releases=true
+    .section__header
+      h3.section__title New Releases
+      = link_to new_releases_path, class: "section__link" do
+        | See More
+        = image_tag("chevron.svg")
 
-hr
-.section data-categories=true
-  .section__header
-    h3.section__title Browse Categories
+    .section__content
+      = render 'books', books: @new_releases, book_class: 'book'
 
-  .section__content
-    - categories.each do |category|
-      = link_to category.name, category, class: 'category'
+  hr
+  .section data-categories=true
+    .section__header
+      h3.section__title Browse Categories
+
+    .section__content
+      - categories.each do |category|
+        = link_to category.name, category, class: 'category'
+
+  hr
+  .section
+    .section__header
+      h3.section__title Other Section
+      = link_to new_releases_path, class: "section__link" do
+        | See More
+        = image_tag("chevron.svg")
+
+    .section__content
+      = render 'books', books: @new_releases, book_class: 'book'

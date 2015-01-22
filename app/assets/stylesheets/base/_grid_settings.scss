@@ -9,11 +9,9 @@
 
 // Neat Breakpoints
 ///////////////////////////////////////////////////////////////////////////////
-$mobile             : new-breakpoint(min-width 481px);
-$tablet             : new-breakpoint(min-width 769px);
-$compressed-desktop : new-breakpoint(max-width 1200px min-width 769px 12);
-$desktop            : new-breakpoint(max-width 1440px min-width 1201px 12);
+$mobile             : new-breakpoint(max-width 480px);
+$tablet             : new-breakpoint(min-width 481px max-width 768px);
+$compressed-desktop : new-breakpoint(min-width 769px max-width 1200px);
+$desktop            : new-breakpoint(min-width 1201px max-width 1440px);
 $large-desktop      : new-breakpoint(min-width 1441px 12);
-
-// $large: new-breakpoint(min-width 769px);
-// $medium: new-breakpoint(min-width 481px);
+$desk: new-breakpoint(min-width 1280px);
