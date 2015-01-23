@@ -1,31 +1,30 @@
 .expandable-section {
-  max-height: 18em;
-  overflow: hidden;
   position: relative;
-
-  transition: max-height 0.5s;
-
-  &__expand-link {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    display: inline-block;
-
-    background-color: white;
-    cursor: pointer;
-
-    text-align: right;
-    text-transform: uppercase;
-    font-size: $base-font-size--small;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: $expandable-link-color;
-
-    &:hover {
-      color: $hover-expandable-link-color;
-    }
-  }
 }
 
+.expandable-section__body {
+  max-height: 18em;
+  overflow: hidden;
 
+  transition: max-height 0.5s;
+}
+
+.expandable-section__expand-link {
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+
+  background-color: white;
+  cursor: pointer;
+
+  text-align: right;
+  text-transform: uppercase;
+  font-size: $base-font-size--small;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: $expandable-link-color;
+
+  &:hover {
+    color: $hover-expandable-link-color;
+  }
+}
