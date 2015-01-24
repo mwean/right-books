@@ -8,3 +8,9 @@ deployment:
     commands:
       - git push --force git@heroku.com:right-books-acceptance.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app right-books-acceptance
+
+  production:
+    branch: master
+    commands:
+      - git push --force git@heroku.com:right-books.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app right-books
