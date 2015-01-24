@@ -1,0 +1,10 @@
+li.comment ng-class="{ 'comment--admin': comment.user.admin, 'comment--reply': comment.reply }"
+  span.comment__author> {{comment.user.fullName}}
+  span.comment__date> on {{comment.dateInWords}}:
+  p {{comment.body}}
+  a href="" ng-click="toggleExpanded()" ng-if="showReplyButton()" Reply
+
+  form name="comment-reply-form" ng-submit="addComment()" ng-if="replyExpanded"
+    textarea name="new-comment" ng-model="newComment.body" auto-focus="replyExpanded"
+    input type="submit"
+    a href="" ng-click="toggleExpanded()" Cancel

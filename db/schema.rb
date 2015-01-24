@@ -11,29 +11,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125195718) do
+ActiveRecord::Schema.define(version: 20150121050051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.string   "author"
-    t.string   "cover_image"
+    t.string   "cover_image_url"
     t.date     "publish_date"
-    t.string   "slug",         null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "slug",                         null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "publisher"
     t.string   "amazon_link"
     t.text     "description"
     t.text     "editor_notes"
-    t.integer  "category"
     t.string   "isbn"
+    t.integer  "category_ids",    default: [],              array: true
+    t.string   "authors",         default: [],              array: true
   end
 
-  add_index "books", ["category"], name: "index_books_on_category", using: :btree
+  add_index "books", ["category_ids"], name: "index_books_on_category_ids", using: :gin
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.text     "body"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                                           null: false
+    t.string   "crypted_password",                                null: false
+    t.string   "salt",                                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer  "failed_logins_count",             default: 0
+    t.datetime "lock_expires_at"
+    t.string   "unlock_token"
+    t.boolean  "admin",                           default: false
+    t.string   "first_name"
+    t.string   "last_name"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end

@@ -1,0 +1,10 @@
+= form_tag sign_in_path, method: :post, 'ng-controller' => 'signInCtrl' do
+  .input__wrapper
+    = email_field_tag :email, @email, class: 'input', autofocus: true, placeholder: 'Email', 'ng-class' => "{'input--is-invalid': invalidEmail}", 'ng-model' => 'email', 'ng-blur' => 'checkEmail()'
+  .input__wrapper
+    = password_field_tag :password, nil, class: 'input', placeholder: 'Password', 'ng-class' => "{'input--is-invalid': invalidPassword}"
+  .input__wrapper
+    = label_tag :remember_me, 'Remember Me'
+    = check_box_tag :remember_me, '1', @remember_me
+
+  = submit_tag 'Sign In'

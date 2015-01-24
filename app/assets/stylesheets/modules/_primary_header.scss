@@ -1,0 +1,11 @@
+.primary-header {
+  padding: 0 2em;
+  border-bottom: 1px rgba(0,0,0,0.1) solid;
+
+  &__logo {
+    display: inline-block;
+    font-size: $base-font-size;
+    text-transform: uppercase;
+    line-height: $primary-header-height;
+  }
+}

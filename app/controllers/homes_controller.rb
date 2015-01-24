@@ -1,5 +1,21 @@
 class HomesController < ApplicationController
   def index
-    @new_releases = Book.new_releases
+    @new_releases = Book.new_releases(6)
   end
+
+  protected
+
+  def categories
+    category_names = [
+      'History',
+      'Biography & Memoir',
+      'Political Philosophy',
+      'Economics',
+      'Culture'
+    ]
+
+    Category.where(name: category_names)
+  end
+
+  helper_method :categories
 end

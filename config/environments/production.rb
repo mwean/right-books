@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_dispatch.rack_cache = true
 
   # When deploying to Heroku, the app must serve static assets (or serve them from a CDN).
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=#{1.year.to_i}"
 
   config.middleware.use Rack::Deflater

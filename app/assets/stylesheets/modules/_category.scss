@@ -1,0 +1,30 @@
+.category {
+  @include span-columns(2 of 10);
+  @include omega(6n);
+
+  @include media(new-breakpoint(max-width 750px min-width 400px)) {
+    @include span-columns(4);
+    @include omega-reset(6n);
+    @include omega(3n);
+  }
+
+  @include media(new-breakpoint(max-width 400px)) {
+    @include span-columns(6);
+    @include omega(2n);
+    @include omega-reset(3n);
+  }
+
+  height: 100%;
+  padding: 1.5em;
+  margin-bottom: 1em;
+
+  border-radius: 15px;
+  border: 1px solid $light-gray;
+  transition: background-color 0.3s;
+
+  text-align: center;
+
+  &:hover {
+    background-color: lighten($light-gray, 50%);
+  }
+}

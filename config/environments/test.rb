@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.middleware.use RackSessionAccess::Middleware
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -13,12 +14,16 @@ Rails.application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_files = true
   config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
+
+  config.assets.debug = false
+  config.assets.js_compressor = :uglifier
+  config.assets.digest = false
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false

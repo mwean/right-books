@@ -1,11 +1,43 @@
 header {
   width: 100%;
-
-  background-color: black;
 }
 
 main {
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+.l-constrained {
   @include outer-container;
 
-  height: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.l-side-section {
+  @include span-columns(3);
+}
+
+.l-main-section {
+  padding-top: $xl;
+}
+
+.l-main-section--constrained {
+  @include outer-container();
+  @include span-columns(9);
+  padding-left: 40px;
+
+  & > * + * {
+    padding-top: $large;
+  }
+}
+
+.l-full-section {
+  @include span-columns(12);
+  @include omega;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
 }

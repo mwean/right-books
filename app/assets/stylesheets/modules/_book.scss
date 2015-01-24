@@ -1,34 +1,49 @@
 .book {
-  @include span-columns(6);
-  @include omega(2n);
+  @include span-columns(2);
+  @include omega(6n);
+
+  @include media(new-breakpoint(max-width 750px min-width 400px)) {
+    @include span-columns(4);
+    @include omega-reset(6n);
+    @include omega(3n);
+    margin-bottom: 1.5em;
+  }
+
+  @include media(new-breakpoint(max-width 400px)) {
+    @include span-columns(6);
+    @include omega(2n);
+    @include omega-reset(3n);
+    margin-bottom: 5%;
+  }
 
   height: 100%;
-
-  @include media($medium) {
-    @include span-columns(4);
-    @include omega-reset(2n);
-    @include omega(3n);
-  }
-
-  @include media($large) {
-    @include span-columns(2);
-    @include omega-reset(3n);
-    @include omega(6n);
-  }
 
   & > a {
     color: black;
   }
 
   &__title {
-    font-size: 90%;
+    font-size: $base-font-size;
+    font-weight: $semi-bold;
+    line-height: 1.2em;
+    padding-top: 8px;
   }
 
-  &__author {
-    font-size: 80%;
+  &__authors {
+    font-size: $base-font-size--small;
+    line-height: $base-line-height--small;
+    color: $light-gray;
   }
 
   &__cover {
     max-height: 170px;
+
+    @include media($compressed-desktop) {
+      max-height: 140px;
+    }
+
+    @include media(new-breakpoint(max-width 1000px min-width 750px)) {
+      max-height: 120px;
+    }
   }
 }

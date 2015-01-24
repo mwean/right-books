@@ -1,0 +1,9 @@
+.view-all__category-name {
+  margin: 1.5em 0;
+}
+
+.view-all__book {
+  @extend .book;
+
+  margin-bottom: 1.5em;
+}
