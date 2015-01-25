@@ -1,6 +1,4 @@
 fieldset {
-  background: lighten($base-border-color, 10);
-  border: $base-border;
   margin: 0 0 ($base-spacing / 2) 0;
   padding: $base-spacing;
 }
@@ -17,31 +15,20 @@ label {
   font-weight: bold;
   margin-bottom: $base-spacing / 4;
 
-  &.required:after {
-    content: "*";
-  }
-
   abbr {
     display: none;
   }
 }
 
-.input {
+input {
   @include box-sizing(border-box);
   @include transition(border-color);
   background-color: white;
-  border-radius: $form-border-radius;
-  border: 1px solid $form-border-color;
   box-shadow: $form-box-shadow;
-  font-family: $form-font-family;
-  font-size: $form-font-size;
-  margin-bottom: $base-spacing / 2;
+  border: 1px solid $faint-gray;
   padding: ($base-spacing / 3) ($base-spacing / 3);
   width: 100%;
-
-  &:hover {
-    border-color: $form-border-color-hover;
-  }
+  position: relative;
 
   &:focus {
     border-color: $form-border-color-focus;
@@ -50,23 +37,56 @@ label {
   }
 }
 
-input[type="search"] {
-  @include appearance(none);
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline;
-  margin-right: $base-spacing / 4;
-}
-
-input[type="file"] {
-  padding-bottom: $base-spacing / 2;
-  width: 100%;
-}
-
 select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-right: $base-spacing / 4;
+  }
+}
+
+.form-inputs input {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding-left: 42px;
+  position: relative;
+
+  @include placeholder {
+    font-size: 90%;
+    color: lighten($faint-gray, 5);
+    letter-spacing: .5px;
+  }
+}
+
+.input {
+  position: relative;
+}
+
+.input--email {
+  &:after {
+    font-family: right-books;
+    content: $email-icon;
+    position: absolute;
+    padding-left: 16px;
+    margin-top: 8px;
+    top: 0;
+    color: lighten($faint-gray, 5);
+    font-size: 75%;
+  }
+}
+
+.input--password {
+  &:after {
+    font-family: right-books;
+    content: $password-icon;
+    position: absolute;
+    padding-left: 16px;
+    margin-top: 8px;
+    top: 0;
+    color: lighten($faint-gray, 5);
+    font-size: 90%;
+  }
 }
