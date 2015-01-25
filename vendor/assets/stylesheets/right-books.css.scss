@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'right-books';
-  src: url(font-path('right-books.eot?56269474'));
-  src: url(font-path('right-books.eot?56269474#iefix')) format('embedded-opentype'),
-       url(font-path('right-books.woff?56269474')) format('woff'),
-       url(font-path('right-books.ttf?56269474')) format('truetype'),
-       url(font-path('right-books.svg?56269474#right-books')) format('svg');
+  src: url(font-path('right-books.eot?63818700'));
+  src: url(font-path('right-books.eot?63818700#iefix')) format('embedded-opentype'),
+       url(font-path('right-books.woff?63818700')) format('woff'),
+       url(font-path('right-books.ttf?63818700')) format('truetype'),
+       url(font-path('right-books.svg?63818700#right-books')) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'right-books';
-    src: url(font-path('right-books.svg?56269474#right-books')) format('svg');
+    src: url(font-path('right-books.svg?63818700#right-books')) format('svg');
   }
 }
 */
@@ -53,7 +53,9 @@
 %icon-mail:before { @extend %icon-base; content: '\e800'; } /* '' */
 %icon-mail-alt:before { @extend %icon-base; content: '\e801'; } /* '' */
 %icon-key:before { @extend %icon-base; content: '\e802'; } /* '' */
+%icon-user:before { @extend %icon-base; content: '\e803'; } /* '' */
 
 .icon-mail { @extend %icon-mail; }
 .icon-mail-alt { @extend %icon-mail-alt; }
 .icon-key { @extend %icon-key; }
+.icon-user { @extend %icon-user; }
