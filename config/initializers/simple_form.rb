@@ -1,5 +1,5 @@
 SimpleForm.setup do |config|
-  config.wrappers :default, class: 'input__wrapper' do |b|
+  config.wrappers :default, class: 'input' do |b|
     b.use :html5
     b.use :placeholder
 
