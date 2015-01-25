@@ -10,20 +10,3 @@ textarea {
   font-size: $base-font-size--small;
   line-height: $base-line-height--small;
 }
-
-input[type="submit"] {
-  float: right;
-}
-
-.input--is-invalid {
-  border-color: red;
-
-  &:hover {
-    border-color: darken(red, 5);
-  }
-
-  &:focus {
-    border-color: red;
-    box-shadow: inset 0 1px 3px rgba(black,0.06), 0 0 5px rgba(darken(red, 5), 0.7);
-  }
-}
