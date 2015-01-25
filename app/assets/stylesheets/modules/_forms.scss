@@ -65,7 +65,7 @@ select {
   position: relative;
 }
 
-.input--email, .input--password {
+.input--email, .input--password, .input--name {
   &:after {
     font-family: right-books;
     position: absolute;
@@ -86,6 +86,13 @@ select {
 .input--password {
   &:after {
     content: $password-icon;
+    font-size: 90%;
+  }
+}
+
+.input--name {
+  &:after {
+    content: $user-icon;
     font-size: 90%;
   }
 }
