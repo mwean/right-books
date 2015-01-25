@@ -65,28 +65,29 @@ select {
   position: relative;
 }
 
-.input--email {
+.input--email, .input--password {
   &:after {
     font-family: right-books;
-    content: $email-icon;
     position: absolute;
     padding-left: 16px;
     margin-top: 8px;
     top: 0;
     color: lighten($faint-gray, 5);
+  }
+}
+
+.input--email {
+  &:after {
+    content: $email-icon;
     font-size: 75%;
   }
 }
 
 .input--password {
   &:after {
-    font-family: right-books;
     content: $password-icon;
-    position: absolute;
-    padding-left: 16px;
-    margin-top: 8px;
-    top: 0;
-    color: lighten($faint-gray, 5);
     font-size: 90%;
   }
 }
+
+
