@@ -70,6 +70,8 @@ GEM
     bourbon (4.0.2)
       sass (~> 3.3)
       thor
+    bugsnag (2.7.1)
+      multi_json (~> 1.0)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -423,6 +425,7 @@ DEPENDENCIES
   binding_of_caller
   bitters
   bourbon
+  bugsnag
   byebug
   capybara
   capybara-screenshot
