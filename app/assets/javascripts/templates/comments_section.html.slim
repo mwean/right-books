@@ -2,7 +2,8 @@ comment-list rb-comments="comments"
 
 form ng-submit="addComment()" ng-if="signedIn" name="new-comment-form"
   textarea ng-model="newComment.body"
-  input type="submit"
+  .btn--float-right
+    input type="submit"
 
 p ng-if="!signedIn"
   ' You must
