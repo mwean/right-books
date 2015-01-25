@@ -18,16 +18,7 @@
       h3.section__title Browse Categories
 
     .section__content
-      - categories.each do |category|
+      - featured_categories.each do |category|
         = link_to category.name, category, class: 'category'
 
-  hr
-  .section
-    .section__header
-      h3.section__title Other Section
-      = link_to new_releases_path, class: "section__link" do
-        | See More
-        = image_tag("chevron.svg")
-
-    .section__content
-      = render 'books', books: @new_releases, book_class: 'book'
+  = render category_sections

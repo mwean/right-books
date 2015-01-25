@@ -1,3 +1,4 @@
-h2= @category.name
+.view-all.section
+  h1.view-all__category-name= @category.name
 
-= render 'books', books: @books, book_class: 'view-all__book'
+  = render 'books', books: @books, book_class: 'view-all__book'

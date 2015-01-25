@@ -50,7 +50,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'poltergeist'
   gem 'rack_session_access'
   gem 'selenium-webdriver'
@@ -72,7 +72,7 @@ group :test, :development do
   gem 'rails-assets-angular-mocks'
   gem 'rails-assets-rosie'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.27.0', require: false
+  gem 'rubocop', '~> 0.27', require: false
   gem 'rubocop-rspec', require: false
   gem 'site_prism'
 end
