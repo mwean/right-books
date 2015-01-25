@@ -9,3 +9,15 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.btn.btn--wide {
+  border-radius: 8px;
+  width: 100%;
+}
+
+.btn--float-right {
+  input[type="submit"] {
+    float: right;
+  }
+}
+
