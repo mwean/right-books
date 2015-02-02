@@ -1,4 +1,4 @@
-.view-all.section
-  h1.view-all__category-name= @category.name
+.book-grid.section
+  h1.book-grid__title= @category.name
 
-  = render 'books', books: @books, book_class: 'view-all__book'
+  = render 'books', books: @books, book_class: 'book-grid__book'
