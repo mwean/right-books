@@ -1,9 +1,13 @@
 div ng-controller="adminIndexCtrl"
-  button.new-book__btn ng-click="toggleModal()" Add Book
+  .section.mt--large
+    h1.book-grid__title.d-inline All books
+    button.btn--circle.btn--float-right ng-click="toggleModal()" +
+    hr
+  .book-grid.section.mt--large
 
-  .books= content_tag_for(:div, @books, class: :book) do |book|
-    = link_to edit_admin_book_path(book) do
-      = render 'book', book: book
+    .books= content_tag_for(:div, @books, class: ['book', 'book-grid__book']) do |book|
+      = link_to edit_admin_book_path(book) do
+        = render 'book', book: book
 
   modal-dialog show-dialog="showModal"
     new-book-search search-url=search_admin_books_path new-book-url=new_admin_book_path
