@@ -6,16 +6,23 @@ $cover-width: 50px;
   padding-left: $cover-width + 15;
 }
 
-.search-result {
+.search-result-block {
   min-height: 75px;
-  margin-bottom: 10px;
+  padding: 18px 0 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  line-height: 1.1;
+  color: $dark-gray;
 
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(black, 0.5)
+    background-color: rgba(0, 0, 0, 0.05);
+    color: darken($medium-gray, 10);
   }
 
+}
+
+.search-result {
   &__cover {
     position: absolute;
     width: $cover-width;
@@ -23,11 +30,17 @@ $cover-width: 50px;
 
   &__title {
     @extend %result-text;
+    line-height: 1.5;
+    font-weight: $bold;
   }
 
   &__authors {
     @extend %result-text;
+    font-size: 90%;
+    margin: 4px 0 0;
+  }
 
-    font-size: 80%;
+  & > img {
+    margin-top: 5px;
   }
 }
