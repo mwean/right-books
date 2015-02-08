@@ -1,5 +1,6 @@
 .modal ng-show="showDialog"
   .modal__overlay ng-click="hideModal()"
   .modal__dialog
-    button.modal__close-btn ng-click="hideModal()" X
+    .modal__header
+      button.btn--close.btn--circle ng-click="hideModal()" &#215;
     .modal__content ng-transclude=true
