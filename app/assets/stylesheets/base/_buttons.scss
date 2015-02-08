@@ -26,8 +26,9 @@ input[type="submit"] {
   text-align: center;
   padding: 0 0 5px 0;
   font-size: 30px;
+}
 
-
+.btn--circle__add-book {
   &:hover {
     @include transition(width .2s ease);
     width: 100px;
@@ -40,6 +41,19 @@ input[type="submit"] {
       font-size: 15px;
     }
   }
+}
+
+.btn--close {
+  position: absolute;
+  display: inline-block;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+
+  cursor: pointer;
+
+  font-size: 120%;
 }
 
 input[type="submit"].btn--small {
