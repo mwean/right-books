@@ -68,7 +68,9 @@ select {
 }
 
 .input--email, .input--password, .input--name {
-  padding-left: 42px;
+  & > input {
+    padding-left: 38px;
+  }
 
   &:after {
     font-family: right-books;
