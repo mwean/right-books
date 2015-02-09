@@ -17,9 +17,11 @@ Capybara.javascript_driver = (ENV['CHROME'] || ENV['CI']) ? :chrome : :poltergei
 
 RSpec.configure do |config|
   config.before(:each, js: true) do
-    page.driver.browser.url_blacklist = [
-      'http://use.typekit.net/zpc4pgn.js',
-      'http://example.com/image.jpg'
-    ]
+    if Capybara.current_driver == :poltergeist
+      page.driver.browser.url_blacklist = [
+        'http://use.typekit.net/zpc4pgn.js',
+        'http://example.com/image.jpg'
+      ]
+    end
   end
 end
