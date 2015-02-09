@@ -25,14 +25,19 @@ input[type="submit"] {
   width: 45px;
   height: 45px;
   text-align: center;
-  padding: 0 0 5px 0;
+  padding: 0;
   font-size: 30px;
 }
 
 .btn--circle__add-book {
+  @include transition(width .2s ease);
+
+  &:before {
+    content: '+';
+  }
+
   &:hover {
-    @include transition(width .2s ease);
-    width: 100px;
+    width: 105px;
     border-radius: 30px;
     content: '';
 
