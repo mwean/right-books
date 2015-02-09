@@ -6,22 +6,9 @@ class BooksController < ApplicationController
 
     gon.push(
       comments: comments.as_json,
-      new_comment_url: comment_book_path(@book)
+      new_comment_url: book_comments_path(@book),
+      comments_url: comment_path(1).sub(/\/1$/, '')
     )
-  end
-
-  def comment
-    if current_user
-      comment = @book.comments.create(
-        body: params[:body],
-        user: current_user,
-        parent_id: params[:parent_id]
-      )
-
-      render json: CommentSerializer.new(comment, root: false)
-    else
-      head :unauthorized
-    end
   end
 
   def new_releases
