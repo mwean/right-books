@@ -6,6 +6,6 @@ module Admin
     section :book_search_modal, Admin::BookSearchModalSection, '.modal'
 
     elements :books, '.book'
-    element :new_book_button, '.new-book__btn'
+    element :new_book_button, '.btn--circle__add-book'
   end
 end
