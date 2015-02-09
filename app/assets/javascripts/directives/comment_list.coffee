@@ -1,9 +1,16 @@
+commentListCtrl = ($scope) ->
+  @removeComment = (comment) -> _.pull($scope.comments, comment)
+
+commentListCtrl.$inject = ['$scope']
+
 commentList = ($http, gonData, csrfToken, Comment) ->
   restrict: 'E'
   templateUrl: 'comment_list.html'
   replace: true
   scope:
     commentData: '=rbComments'
+
+  controller: commentListCtrl
 
   link: (scope, element, attrs) ->
     scope.newComment = {}
