@@ -9,12 +9,14 @@
       p Published #{@book.publish_date.strftime('%D')}
 
   .l-main-section--constrained
-    .section
+    .section.section--book-info
       h1.book-details__title= @book.title
       h2.book-details__subtitle= @book.subtitle
       h2.book-details__author= @book.authors_sentence
 
-      - if @book.editor_notes
+    - if @book.editor_notes
+      .section
+        h2.section__header Rightbooks Editor Comments
         == @book.editor_notes
 
     .section
@@ -22,4 +24,5 @@
       expandable-section.ng-cloak== @book.description
 
     .section
+      h2.section__header Reader Comments
       comments-section
