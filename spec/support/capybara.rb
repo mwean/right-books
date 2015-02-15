@@ -1,4 +1,5 @@
 require 'capybara/poltergeist'
+require 'capybara-slow_finder_errors' if ENV['CHECK_SLOW_FINDERS']
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
