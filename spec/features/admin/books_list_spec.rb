@@ -16,6 +16,7 @@ feature 'admin book list page' do
     expect(admin_books_page).to have_books(count: 1)
 
     admin_books_page.new_book_button.click
+    admin_books_page.wait_for_book_search_modal
     book_search_modal = admin_books_page.book_search_modal
     book_search_modal.search_field.set(new_book.title)
 
