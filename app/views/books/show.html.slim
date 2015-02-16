@@ -15,9 +15,9 @@
       h2.book-details__author= @book.authors_sentence
       = category_links(@book)
 
-    - if @book.editor_notes.present?
-      .section
-        h2.section__header Rightbooks Editor Comments
+    - if @book.editor_notes
+      .section.editor-comments
+        h2.section__header Rightbooks Editor's Notes
         == @book.editor_notes
 
     .section
