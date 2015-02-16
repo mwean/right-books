@@ -11,5 +11,5 @@ textarea {
   line-height: $base-line-height--small;
   border: 1px solid $medium-gray;
   border-radius: 4px;
-  outline: lighten($base-accent-color, 5) auto 5px;
+  outline: none;
 }
