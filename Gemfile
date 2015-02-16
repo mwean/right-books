@@ -49,9 +49,9 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
-  gem 'poltergeist'
   gem 'rack_session_access'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false

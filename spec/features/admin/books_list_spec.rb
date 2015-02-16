@@ -19,9 +19,6 @@ feature 'admin book list page' do
     admin_books_page.wait_for_book_search_modal
     book_search_modal = admin_books_page.book_search_modal
     book_search_modal.search_field.set(new_book.title)
-
-    # Switch to #trigger method once phantomjs error is fixed
-    page.execute_script('$("#new-book-search").trigger("change")')
     book_search_modal.wait_for_results
 
     expect(book_search_modal).to have_results(count: 1)

@@ -71,10 +71,8 @@ feature 'book page' do
     end
 
     scenario 'admin deletes a comment', :js do
-      # Auto-accept confirmation dialog until poltergeist supports it
-      page.execute_script 'window.confirm = function() { return true };'
       bad_comment = comments_section.find_comment(comment)
-      bad_comment.delete_button.click
+      accept_confirm { bad_comment.delete_button.click }
 
       expect(comments_section).not_to have_content(comment.body)
     end
