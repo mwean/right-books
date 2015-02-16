@@ -6,9 +6,8 @@
   .section data-new-releases=true
     .section__header
       h3.section__title New Releases
-      = link_to new_releases_path, class: "section__link" do
+      = link_to new_releases_path, class: ['section__link', 'right-arrow', 'small-caps-link'] do
         | See More
-        = image_tag("chevron.svg")
 
     .section__content
       = render 'books', books: @new_releases, book_class: 'book'

@@ -18,3 +18,17 @@
   line-height: 1;
   display: inline-block;
 }
+
+.accent-link, .editor-comments a {
+  color: $base-accent-color;
+
+  &:hover {
+    color: darken($base-accent-color, 10);
+  }
+}
+
+.small-caps-link {
+  text-transform: uppercase;
+  font-size: $base-font-size--small;
+  letter-spacing: 1px;
+}
