@@ -8,7 +8,6 @@ class RemoveCategoryIdsFromBooks < ActiveRecord::Migration
     end
 
     remove_column :books, :category_ids
-    remove_column :books, :display_order
   end
 
   def down
