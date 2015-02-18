@@ -11,7 +11,7 @@ feature 'book page' do
       book_page.load(slug: book.slug)
     end
 
-    scenario 'user does not see comment buttons or inputs', :js do
+    scenario 'user does not see comment buttons or inputs' do
       expect(comments_section.comments.first).to have_no_reply_link
       expect(comments_section).to have_no_comment_field
       expect(comments_section).to have_sign_in_link
@@ -29,7 +29,7 @@ feature 'book page' do
       book_page.load(slug: book.slug)
     end
 
-    scenario 'user can add a comment and reply to an existing comment', :js do
+    scenario 'user can add a comment and reply to an existing comment' do
       existing_comment = comments_section.comments.first
 
       expect(comments_section).to have_no_sign_in_link
@@ -70,7 +70,7 @@ feature 'book page' do
       book_page.load(slug: book.slug)
     end
 
-    scenario 'admin deletes a comment', :js do
+    scenario 'admin deletes a comment' do
       bad_comment = comments_section.find_comment(comment)
       accept_confirm { bad_comment.delete_button.click }
 

@@ -1,0 +1,38 @@
+.select-dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    & .select-dropdown__current:after {
+      content: "▾";
+      font-size: 20px;
+      bottom: 5px;
+      position: relative;
+      left: -5px;
+    }
+
+    & .select-dropdown__options {
+      display: block;
+    }
+  }
+}
+
+.select-dropdown__options {
+  display: none;
+  position: absolute;
+  margin: -5px 0 0;
+  padding: 4px;
+
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.select-dropdown__option {
+  padding: 4px;
+
+  border: none;
+
+  line-height: 100%;
+}

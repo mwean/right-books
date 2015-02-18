@@ -7,7 +7,7 @@ feature 'admin book list page' do
 
   background { sign_in_user(user) }
 
-  scenario 'admin sees a list of existing books and adds a new one', :js do
+  scenario 'admin sees a list of existing books and adds a new one' do
     new_book_page = Admin::NewBookPage.new
     new_book = build_stubbed(:book)
     FakeAmazon.stub_search_results([new_book])

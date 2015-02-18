@@ -35,7 +35,7 @@ feature 'home page' do
     end
   end
 
-  scenario 'user clicks sign up link and creates an account', :js do
+  scenario 'user clicks sign up link and creates an account' do
     sign_up_page = SignUpPage.new
     user = build_stubbed(:user)
     home_page.load

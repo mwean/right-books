@@ -1,13 +1,16 @@
 div ng-controller="adminIndexCtrl"
   .section.mt--large
-    h1.book-grid__title.d-inline All books
+    .select-dropdown
+      h1= filter_name
+      table.select-dropdown__options
+        - filter_categories.each do |category|
+          tr: td.select-dropdown__option= link_to category.name, admin_books_path(category: category.slug)
+
     button.btn--circle.btn--circle__add-book.btn--float-right ng-click="toggleModal()"
     hr
-  .book-grid.section.mt--large
 
-    .books= content_tag_for(:div, @books, class: ['book', 'book-grid__book']) do |book|
-      = link_to edit_admin_book_path(book) do
-        = render 'book', book: book
+  .book-grid.section.mt--large
+    sortable-grid books="books"
 
   modal-dialog show-dialog="showModal"
     new-book-search search-url=search_admin_books_path new-book-url=new_admin_book_path

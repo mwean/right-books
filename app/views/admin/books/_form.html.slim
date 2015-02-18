@@ -1,22 +1,20 @@
-= simple_form_for([:admin, @book], html: { 'ng-controller' => 'newBookCtrl', 'ng-submit' => 'updateCategoryIds($event)' }) do |f|
+= simple_form_for([:admin, @book], html: { 'ng-controller' => 'newBookCtrl' }) do |f|
   = hidden_field_tag :isbn, @book.isbn
 
   .l-main-section.l-constrained
-
     .l-side-section
       .book-details__cover
         = image_tag @book.cover_image_url
-      .book-details__sidebar-details
-        = f.input :category_ids do
-          = f.input_field :category_ids, as: :hidden
-
-          multi-select input-model="data.categories" output-model="book.categories" button-label="name" item-label="name" tick-property="selected" helper-elements=""
 
     .l-main-section--constrained.section
       .form-inputs
         = f.input :title
         = f.input :subtitle
         = f.input :authors_list, label: 'Author'
+        = f.input :category_ids do
+          = f.input_field :category_ids, as: :hidden, multiple: true, 'ng-repeat': 'category in book.categories', 'ng-value': 'category.id'
+
+          multi-select input-model="data.categories" output-model="book.categories" button-label="name" item-label="name" tick-property="selected" helper-elements=""
 
     .l-full-section.mt--large
       = f.input :editor_notes, input_html: { rows: 10, 'ng-model' => 'book.editorNotes', redactor: '' }
