@@ -1,0 +1,7 @@
+.books ui-sortable="sortableOptions" ng-model="books"
+  .book.book-grid__book ng-repeat="book in books"
+    a ng-href="{{book.editPath}}"
+      img.book__cover ng-src="{{book.coverImageUrl}}"
+      .book__info
+        .book__title {{book.title}}
+        .book__authors {{book.authorsSentence}}

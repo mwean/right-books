@@ -18,11 +18,10 @@
 class Category < ActiveRecord::Base
   extend FriendlyId
 
-  friendly_id :name, use: :slugged
+  has_many :categorizations
+  has_many :books, through: :categorizations
 
-  def books
-    Book.with_category_id(id)
-  end
+  friendly_id :name, use: :slugged
 
   def self.with_key(keys)
     by_key(keys).first
@@ -31,5 +30,9 @@ class Category < ActiveRecord::Base
   def self.by_key(keys)
     keys_ary = Array(keys).map(&:to_s)
     where(key: keys_ary)
+  end
+
+  def ordered_books
+    books.order(Categorization.arel_table[:display_order].asc)
   end
 end

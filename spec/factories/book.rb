@@ -9,6 +9,5 @@ FactoryGirl.define do
     amazon_link { Faker::Internet.url }
     publisher { Faker::Company.name }
     description { Faker::Lorem.paragraph }
-    category_ids [1, 2, 3]
   end
 end

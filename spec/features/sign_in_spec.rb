@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'signing in' do
-  scenario 'user clicks sign in link in header and signs in', :js do
+  scenario 'user clicks sign in link in header and signs in' do
     user = create(:user, password: 'password')
     home_page = HomePage.new
     sign_in_page = SignInPage.new

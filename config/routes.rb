@@ -21,7 +21,10 @@ RightBooks::Application.routes.draw do
     root controller: :books, action: :index
 
     resources :books do
-      collection { get :search }
+      collection do
+        get :search
+        put :sort
+      end
     end
   end
 
