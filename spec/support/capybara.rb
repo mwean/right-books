@@ -9,6 +9,8 @@ Capybara.default_driver = driver
 Capybara.javascript_driver = driver
 
 RSpec.configure do |config|
+  config.include Capybara::Angular::DSL, type: :feature
+
   config.before(:each, type: :feature) do
     if Capybara.current_driver == :webkit
       page.driver.block_unknown_urls

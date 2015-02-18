@@ -83,6 +83,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-angular (0.1.0)
+      capybara
     capybara-screenshot (1.0.3)
       capybara (>= 1.0, < 3)
       colored
@@ -429,6 +431,7 @@ DEPENDENCIES
   bugsnag
   byebug
   capybara
+  capybara-angular
   capybara-screenshot
   capybara-slow_finder_errors
   capybara-webkit

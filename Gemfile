@@ -50,6 +50,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-angular'
   gem 'capybara-screenshot'
   gem 'capybara-webkit'
   gem 'database_cleaner'
