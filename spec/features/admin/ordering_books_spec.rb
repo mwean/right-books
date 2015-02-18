@@ -32,6 +32,10 @@ feature 'admin ordering books' do
     expect(admin_books_page.books.first.text).to match(second_book_text)
     expect(admin_books_page.books.last.text).to match(first_book_text)
 
+    admin_books_page.filter_category(BlankCategory.new)
+
+    expect(admin_books_page).to have_books(count: 3)
+
     category_page.load(slug: category.slug)
 
     expect(category_page.books.first.text).to match(second_book_text)
