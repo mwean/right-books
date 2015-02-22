@@ -1,0 +1,13 @@
+@mixin quotation-mark($quote-type, $style) {
+  content: $quote-type;
+  color: $faint-gray;
+  font-size: 4em;
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+
+  @if $style == "open" {
+    margin-right: 0.15em;
+  } @else if $style == "closed" {
+    margin-left: 0.15em;
+  }
+}

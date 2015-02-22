@@ -3,10 +3,10 @@
 @import "normalize.css.scss";
 @import "bourbon";
 @import "variables";
+@import "mixins/**/*";
 @import "bitters/base";
 @import "base/**/*";
 @import "neat";
-@import "mixins/**/*";
 @import "vendor";
 @import "layout";
 @import "modules/**/*";
