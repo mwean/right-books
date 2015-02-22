@@ -1,3 +1,7 @@
+.mt--small {
+  margin-top: $small;
+}
+
 .mt--large {
   margin-top: $large;
 }
@@ -10,4 +14,11 @@
   display: inline;
 }
 
+.ta-c {
+  text-align: center;
+  float: none;
+}
 
+.pull-left {
+  float: left;
+}
