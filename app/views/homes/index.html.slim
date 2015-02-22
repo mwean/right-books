@@ -12,7 +12,8 @@
     .section__content
       = render 'books', books: @new_releases, book_class: 'book'
 
-  hr
+  .section--border
+
   .section data-categories=true
     .section__header
       h3.section__title Browse Categories
@@ -20,5 +21,21 @@
     .section__content
       - featured_categories.each do |category|
         = link_to category.name, category, class: 'category'
+
+  .section--border
+
+  .section--light.section--large
+    .section__header.ta-c
+      span.rightbooks Rightbooks
+      span.section__title--callout  Exclusive
+    .section__description.ta-c.mt--small Prominent conservative readers name their favorite books.
+    .section__content.row--constrained.book--with-quote.mt--large
+      .pull-left
+        = image_tag("example-book.jpeg")
+      .section--clear
+        blockquote
+          'One of conservatism’s most important philosophers makers an eloquent defense of natural right against the twin currents of relativism and historicism. Of relativism and historicism.
+        cite
+          'Thomas Sowell
 
   = render category_sections
