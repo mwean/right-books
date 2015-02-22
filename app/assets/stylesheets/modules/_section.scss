@@ -2,7 +2,12 @@
   @include outer-container();
 
   max-width: 80%;
-  margin: 0 auto;
+
+  &:not(:first-of-type) {
+    padding-top: 60px;
+  }
+
+  padding-bottom: 60px;
 
   @include media(new-breakpoint(max-width 1000px min-width 750px)) {
     max-width: 90%;
@@ -13,10 +18,6 @@
   &__header {
     @include clearfix;
     padding: 0.5em 0;
-  }
-
-  &__title {
-    float: left;
   }
 
   &__link {
@@ -36,10 +37,38 @@
   &__content {
     padding: 1em 0;
   }
+
+  &__description {
+    font-size: 25px;
+  }
+}
+
 .section--border {
   margin-bottom: 0;
   border-top: 1px solid #dadfe1;
 }
+
+.section__title {
+  float: left;
+}
+
+.section__title--callout {
+  font-weight: $bold;
+  text-transform: uppercase;
+}
+
+.rightbooks {
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.section--light {
+ background-color: #f7f7f7;
+}
+
+.section--large {
+  padding-top: $large;
+  padding-bottom: $large;
 }
 
 .section--book-info {
@@ -51,8 +80,6 @@
   background-size: 105% auto;
   text-align: center;
   color: white;
-
-
   height: 280px;
   @include background-image(image-url("hero-blurred.png"));
   background-position: center 45%;
@@ -73,4 +100,8 @@
   letter-spacing: 1.2px;
   font-weight: 300;
   font-size: 24px;
+}
+
+.section--clear {
+  @include clearfix();
 }
