@@ -1,0 +1,28 @@
+.category-nav {
+  height: 100%;
+  padding: $large 0 0 $large;
+
+  border-right: $nav-border;
+}
+
+.category-nav__item {
+  margin-bottom: 1em;
+
+  a {
+    color: $light-gray;
+
+    font-size: 110%;
+  }
+}
+
+.category-nav__item--selected {
+  font-weight: 700;
+
+  a {
+    color: black;
+  }
+}
+
+.category-nav__title {
+  margin-bottom: 2em;
+}
