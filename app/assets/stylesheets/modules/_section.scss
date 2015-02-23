@@ -67,8 +67,12 @@
 }
 
 .section--large {
-  padding-top: $large;
-  padding-bottom: $large;
+  padding-top: $medium + $large;
+  padding-bottom: $medium + $large;
+
+  .section__description {
+    font-size: 28px;
+  }
 }
 
 .section--book-info {
@@ -104,4 +108,8 @@
 
 .section--clear {
   @include clearfix();
+
+  &--left {
+    margin-left: 200px;
+  }
 }
