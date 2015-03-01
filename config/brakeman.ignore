@@ -1,0 +1,46 @@
+{
+  "ignored_warnings":[
+    {
+      "warning_type":"Cross Site Scripting",
+      "warning_code":2,
+      "fingerprint":"983818cdb59eaeb3576e9504422c8e07143214f47124792b159ef0639d2ab310",
+      "message":"Unescaped model attribute",
+      "file":"app/views/books/show.html.slim",
+      "line":21,
+      "link":"http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code":"Book.find_by(:slug => (params[:id])).editor_notes",
+      "render_path":[
+        "BooksController#show"
+      ],
+      "location":{
+        "type":"template",
+        "template":"books/show (BooksController#show)"
+      },
+      "user_input":null,
+      "confidence":"Medium",
+      "note":""
+    },
+    {
+      "warning_type":"Cross Site Scripting",
+      "warning_code":2,
+      "fingerprint":"8a274c5802f9b6569dbb001b5d550812f682b343e5bd96dbdc709e31497d296c",
+      "message":"Unescaped model attribute",
+      "file":"app/views/books/show.html.slim",
+      "line":25,
+      "link":"http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code":"Book.find_by(:slug => (params[:id])).description",
+      "render_path":[
+        "BooksController#show"
+      ],
+      "location":{
+        "type":"template",
+        "template":"books/show (BooksController#show)"
+      },
+      "user_input":null,
+      "confidence":"Medium",
+      "note":""
+    }
+  ],
+  "updated":"2015-03-01 15:50:43 -0800",
+  "brakeman_version":"3.0.1"
+}

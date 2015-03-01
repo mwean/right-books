@@ -63,6 +63,7 @@ group :test do
 end
 
 group :test, :development do
+  gem 'brakeman'
   gem 'byebug'
   gem 'capybara-slow_finder_errors', require: false
   gem 'coffeelint', '~> 0.4.0'

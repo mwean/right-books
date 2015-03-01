@@ -1,6 +1,11 @@
 test:
   override:
-    - bundle exec rake rubocop coffeelint spec:without_features konacha:run spec:features
+    - bundle exec rake rubocop
+    - bundle exec rake coffeelint
+    - bundle exec brakeman -A --no-combine-locations -z -o $CIRCLE_ARTIFACTS/brakeman.html
+    - bundle exec rake spec:without_features
+    - bundle exec rake konacha:run
+    - bundle exec rake spec:features
 
 deployment:
   acceptance:
