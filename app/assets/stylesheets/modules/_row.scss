@@ -1,4 +1,17 @@
+.row {
+  @include outer-container;
+  max-width: 80%;
+}
+
+.row-full {
+  max-width: 100%;
+}
+
 .row--constrained {
-  width: 60%;
-  margin: auto;
+  @include outer-container();
+}
+
+.row--extra-pad {
+  // padding-top: $medium;
+  // padding-bottom: $medium;
 }
