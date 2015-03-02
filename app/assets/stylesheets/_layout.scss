@@ -32,10 +32,11 @@ main {
 }
 
 .l-main-section--constrained {
+  @include outer-container;
   @include span-columns(9);
 
   margin-right: 0;
-  padding-left: 40px;
+  padding-left: 20px;
 
   & > * + * {
     margin-top: $large;
