@@ -15,27 +15,31 @@ main {
   margin-right: auto;
 }
 
+.l-outer-container {
+  @include outer-container;
+}
+
 .l-side-section {
   @include span-columns(3);
 }
 
 .l-main-section {
-  padding-top: $xl;
-}
-
-.l-main-section--constrained {
-  @include outer-container();
-  @include span-columns(9);
-  padding-left: 40px;
+  margin-top: $xl;
 
   & > * + * {
-    padding-top: $large;
+    padding-top: 60px;
   }
 }
 
-.l-full-section {
-  @include span-columns(12);
-  @include omega;
+.l-main-section--constrained {
+  @include span-columns(9);
+
+  margin-right: 0;
+  padding-left: 40px;
+
+  & > * + * {
+    margin-top: $large;
+  }
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
