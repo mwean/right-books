@@ -1,4 +1,6 @@
 .book-grid.section.mt--large
-  h1.book-grid__title New Releases
+  .row
+    h1.book-grid__title New Releases
 
-  = render 'books', books: @books, book_class: 'book-grid__book'
+  .row
+    = render 'books', books: @books, book_class: 'book-grid__book'
