@@ -1,11 +1,5 @@
 .section {
-  @include outer-container();
-
-  max-width: 80%;
-
-  &:not(:first-of-type) {
-    padding-top: 60px;
-  }
+  @include clearfix;
 
   padding-bottom: 60px;
 
@@ -39,13 +33,14 @@
   }
 
   &__description {
+    font-weight: $thin;
     font-size: 25px;
   }
 }
 
 .section--border {
   margin-bottom: 0;
-  border-top: 1px solid #dadfe1;
+  border-bottom: 1px solid #dadfe1;
 }
 
 .section__title {
@@ -104,12 +99,4 @@
   letter-spacing: 1.2px;
   font-weight: 300;
   font-size: 24px;
-}
-
-.section--clear {
-  @include clearfix();
-
-  &--left {
-    margin-left: 200px;
-  }
 }
