@@ -1,9 +1,10 @@
 .book-grid__title {
-  margin: 1.5em 0;
+  margin-top: $large + $small;
+  margin-bottom: $large;
 }
 
 .book-grid__book {
   @extend .book;
 
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
