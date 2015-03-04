@@ -1,6 +1,6 @@
 .category-nav {
   height: 100%;
-  padding: $large 0 0 $large;
+  padding: ($large + $small) 0 0 $large;
 
   border-right: $nav-border;
 }
@@ -10,8 +10,6 @@
 
   a {
     color: $light-gray;
-
-    font-size: 110%;
   }
 }
 
@@ -19,10 +17,13 @@
   font-weight: 700;
 
   a {
-    color: black;
+    color: $dark-gray;
   }
 }
 
 .category-nav__title {
-  margin-bottom: 2em;
+  margin-bottom: 1.7em;
+  font-size: 26px;
+  font-weight: $thin;
+  line-height: 50.625px;
 }
