@@ -19,7 +19,7 @@ main {
 }
 
 .l-side-section {
-  @include span-columns(3);
+  @include span-columns(2.5);
 }
 
 .l-main-section {
@@ -40,6 +40,11 @@ main {
   & > * + * {
     margin-top: $large;
   }
+}
+
+.l-main-section--constrained--with-side-nav {
+  @include span-columns(9.5);
+  padding: 0 20px;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
