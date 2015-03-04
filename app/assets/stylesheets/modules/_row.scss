@@ -10,8 +10,3 @@
 .row--constrained {
   @include outer-container();
 }
-
-.row--extra-pad {
-  // padding-top: $medium;
-  // padding-bottom: $medium;
-}

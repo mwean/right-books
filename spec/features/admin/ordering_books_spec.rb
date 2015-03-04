@@ -4,8 +4,8 @@ feature 'admin ordering books' do
   given(:user) { create(:user, :admin) }
   given(:category) { create(:category) }
   given(:category2) { create(:category) }
-  given!(:book) { create(:book, category_ids: [category.id]) }
-  given!(:book2) { create(:book, category_ids: [category.id]) }
+  given!(:book) { create(:book, title: 'Some Book', category_ids: [category.id]) }
+  given!(:book2) { create(:book, title: 'Different Book', category_ids: [category.id]) }
   given!(:book3) { create(:book, category_ids: [category2.id]) }
   given(:admin_books_page) { Admin::BooksPage.new }
   given(:category_page) { CategoryPage.new }
