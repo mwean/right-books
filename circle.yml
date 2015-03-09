@@ -1,11 +1,25 @@
+machine:
+  post:
+    - curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+    - sudo service docker start
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t mwean/right-books-db -f containers/db.docker .
+    - docker build -t mwean/right-books-redis -f containers/redis.docker .
+    - docker build -t mwean/right-books-app . -f containers/app.docker
+    - docker build -t mwean/right-books-web . -f containers/web.docker
+
 test:
   override:
-    - bundle exec rake rubocop
-    - bundle exec rake coffeelint
-    - bundle exec brakeman -A --no-combine-locations -z -o $CIRCLE_ARTIFACTS/brakeman.html
-    - bundle exec rake spec:without_features
-    - bundle exec rake konacha:run
-    - bundle exec rake spec:features
+    - ./boot test
+    - docker exec app bundle exec rake rubocop
+    - docker exec app bundle exec rake coffeelint
+    - docker exec app bundle exec brakeman -A --no-combine-locations -z -o $CIRCLE_ARTIFACTS/brakeman.html
+    - docker exec app bundle exec rake spec:without_features
+    - docker exec app bundle exec rake konacha:run
+    - docker exec app bundle exec rake spec:features
 
 deployment:
   acceptance:
@@ -17,5 +31,8 @@ deployment:
   production:
     branch: master
     commands:
-      - git push --force git@heroku.com:right-books.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app right-books
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push mwean/right-books-db
+      - docker push mwean/right-books-redis
+      - docker push mwean/right-books-app
+      - docker push mwean/right-books-web

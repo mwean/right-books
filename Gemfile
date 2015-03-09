@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.2.0'
 
@@ -22,16 +21,7 @@ gem 'newrelic_rpm', '>= 3.7.3'
 gem 'oj'
 gem 'ox'
 gem 'pg'
-gem 'rack-canonical-host'
 gem 'rails', '~> 4.2.0'
-gem 'rails-assets-angular'
-gem 'rails-assets-angular-multi-select'
-gem 'rails-assets-angular-redactor'
-gem 'rails-assets-angular-ui-sortable'
-gem 'rails-assets-jquery-ui'
-gem 'rails-assets-lodash'
-gem 'rails-assets-moment'
-gem 'rails-assets-normalize.css'
 gem 'redis'
 gem 'sass-rails', '~> 5.0.1'
 gem 'simple_form', '~> 3.1.0'
@@ -40,6 +30,17 @@ gem 'sorcery', '~> 0.9.0'
 gem 'uglifier'
 gem 'unicorn'
 gem 'vacuum'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-multi-select'
+  gem 'rails-assets-angular-redactor'
+  gem 'rails-assets-angular-ui-sortable'
+  gem 'rails-assets-jquery-ui'
+  gem 'rails-assets-lodash'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-normalize.css'
+end
 
 group :production, :acceptance do
   gem 'heroku_rails_deflate'
