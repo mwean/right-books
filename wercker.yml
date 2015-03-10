@@ -1,0 +1,48 @@
+box: ubuntu:latest
+
+build:
+    steps:
+        - install-packages:
+            packages: curl
+        - script:
+            name: Install Docker
+            code: curl -sSL https://get.docker.com/ubuntu/ | sh
+        - script:
+            name: Build the application
+            code: docker -v
+        - script:
+            name: Docker info
+            code: docker info
+        - script:
+            name: Build db container
+            code: docker build -t mwean/right-books-db -f containers/db.docker .
+        - script:
+            name: Build redis container
+            code: docker build -t mwean/right-books-redis -f containers/redis.docker .
+        - script:
+            name: Build app container
+            code: docker build -t mwean/right-books-app . -f containers/app.docker
+        - script:
+            name: Build web container
+            code: docker build -t mwean/right-books-web . -f containers/web.docker
+        - script:
+            name: Boot containers
+            code: ./boot test
+        - script:
+            name: Rubocop
+            code: docker exec app bundle exec rake rubocop
+        - script:
+            name: Coffeelint
+            code: docker exec app bundle exec rake coffeelint
+        - script:
+            name: Brakeman
+            code: docker exec app bundle exec brakeman -A --no-combine-locations -z -o $CI_ARTIFACTS/brakeman.html
+        - script:
+            name: Unit specs
+            code: docker exec app bundle exec rake spec:without_features
+        - script:
+            name: JS specs
+            code: docker exec app bundle exec rake konacha:run
+        - script:
+            name: Feature specs
+            code: docker exec app bundle exec rake spec:features
