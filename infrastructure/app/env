@@ -1,0 +1,15 @@
+RAILS_ENV=production
+SECRET_KEY_BASE=<%= secret_key_base %>
+
+UNICORN_WORKERS=3
+UNICORN_BACKLOG=16
+
+DATABASE_PASSWORD=<%= db_password %>
+DATABASE_URL=<%= db_url %>
+REDIS_URL=redis://redis:6379
+
+AWS_ACCESS_KEY_ID=<%= aws_access_key %>
+AWS_SECRET_ACCESS_KEY=<%= aws_secret_key %>
+AMAZON_ASSOCIATE_TAG=<%= amazon_associate_tag %>
+
+NEW_RELIC_LICENSE_KEY=<%= new_relic_key %>

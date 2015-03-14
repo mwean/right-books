@@ -7,6 +7,7 @@ gem 'ancestry'
 gem 'angular-rails-templates'
 gem 'annotate', '~> 2.6.5'
 gem 'autoprefixer-rails'
+gem 'awesome_print', require: 'ap'
 gem 'bitters'
 gem 'bourbon'
 gem 'bugsnag'
@@ -33,7 +34,8 @@ gem 'vacuum'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
-  gem 'rails-assets-angular-multi-select'
+  # Waiting for bugfix https://github.com/isteven/angular-multi-select/issues/205
+  gem 'rails-assets-angular-multi-select', '~> 2.0.2'
   gem 'rails-assets-angular-redactor'
   gem 'rails-assets-angular-ui-sortable'
   gem 'rails-assets-jquery-ui'
@@ -51,7 +53,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-angular'
+  gem 'capybara-angular', github: 'mwean/capybara-angular'
   gem 'capybara-screenshot'
   gem 'capybara-webkit'
   gem 'database_cleaner'
@@ -83,12 +85,14 @@ group :test, :development do
 end
 
 group :development do
-  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard', '~> 2.6.1'
   gem 'guard-livereload'
+  gem 'highline'
   gem 'launchy'
+  gem 'meta_request'
+  gem 'mina'
   gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rb-fsevent'

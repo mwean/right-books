@@ -19,7 +19,9 @@ RUN bundle install --without development
 
 COPY . /usr/src/app/
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+# Dummy DATABASE_URL to prevent error during compilation
+RUN DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname RAILS_ENV=production \
+  bundle exec rake assets:precompile --trace
 
 VOLUME /usr/src/app
 EXPOSE ${PORT}
