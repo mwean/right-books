@@ -6,6 +6,10 @@
   margin-top: $medium;
 }
 
+.mt--medium-large {
+  margin-top: $medium-large;
+}
+
 .mt--large {
   margin-top: $large;
 }
@@ -33,4 +37,8 @@
 
 .pull-left {
   float: left;
+}
+
+.thin {
+  font-weight: $thin;
 }
