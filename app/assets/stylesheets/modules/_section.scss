@@ -77,6 +77,17 @@
   height: 280px;
   @include background-image(image-url("hero-blurred.png"));
   background-position: center 45%;
+
+  &--home {
+    @include background-image(image-url("hero-blurred.png"));
+    background-position: center 45%;
+    color: white;
+  }
+
+  &--about {
+    background-color: #f1eee2;
+    color: $medium-gray;
+  }
  }
 
 .hero__title {
