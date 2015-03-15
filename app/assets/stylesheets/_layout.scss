@@ -22,8 +22,13 @@ main {
   @include span-columns(2.5);
 }
 
+.l-side-section--light {
+  @extend .l-side-section;
+  background-color: #f1eee5;
+}
+
 .l-main-section {
-  margin-top: $xl;
+  margin-top: 60px;
 
   & > * + * {
     padding-top: 60px;

@@ -71,12 +71,10 @@
 }
 
 .section--hero {
+  padding: 60px;
   background-size: 105% auto;
   text-align: center;
-  color: white;
   height: 280px;
-  @include background-image(image-url("hero-blurred.png"));
-  background-position: center 45%;
 
   &--home {
     @include background-image(image-url("hero-blurred.png"));
@@ -91,14 +89,7 @@
  }
 
 .hero__title {
-  padding-top: 65px;
-  padding-bottom: 28px;
-
-  letter-spacing: 12px;
-  font-weight: $thin;
   font-size: $large + $small;
-
-  text-transform: uppercase;
 }
 
 .hero__subtitle {
