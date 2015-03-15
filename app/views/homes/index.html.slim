@@ -1,6 +1,6 @@
-.section--hero
-  h1.hero__title Rightbooks
-  h2.hero__subtitle Books for conservative readers.
+.section--hero.section--hero--home
+  h1.hero__title.right-books Rightbooks
+  h2.hero__subtitle.mt--medium-large Books for conservative readers.
 
 .l-main-section
   .section.section--border data-new-releases=true
@@ -13,8 +13,6 @@
       .section__content
         = render 'books', books: @new_releases, book_class: 'book'
 
-
-
   .section.section--border data-categories=true
     .row
       .section__header
@@ -22,7 +20,11 @@
 
       .section__content
         - featured_categories.each do |category|
-          = link_to category.name, category, class: 'category'
+          = link_to '', category, class: ['category', category.slug]
+
+  .section.section--border
+    .row
+      h3 History
 
   .section.section--light.section--border
     .row
