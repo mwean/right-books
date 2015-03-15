@@ -10,3 +10,13 @@
 .row--constrained {
   @include outer-container();
 }
+
+.row__title {
+  font-size: 2em;
+  font-weight: $thin;
+  padding-bottom: 35px;
+}
+
+.row__title--huge {
+  font-size: 3em;
+}
