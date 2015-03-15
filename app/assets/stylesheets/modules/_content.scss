@@ -1,0 +1,8 @@
+.content {
+  margin: auto;
+}
+
+.content--constrained {
+  @extend .content;
+  max-width: 720px;
+}
