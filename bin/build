@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker build -t mwean/right-books-app -f infrastructure/app/Dockerfile .
+docker build -t mwean/right-books-web -f infrastructure/web/Dockerfile .

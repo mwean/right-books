@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mwean/capybara-angular.git
+  revision: 11199f6aa901bd1c9dca605f4e4f8c74311b3097
+  specs:
+    capybara-angular (0.1.0)
+      capybara
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -87,14 +94,13 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    callsite (0.0.11)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-angular (0.1.0)
-      capybara
     capybara-screenshot (1.0.3)
       capybara (>= 1.0, < 3)
       colored
@@ -143,7 +149,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.4)
-    excon (0.41.0)
+    excon (0.44.4)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -222,11 +228,18 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mina (0.3.3)
+      open4 (~> 1.3.4)
+      rake
     mini_portile (0.6.2)
     minitest (5.5.1)
-    multi_json (1.10.1)
+    multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     neat (1.7.0)
@@ -243,6 +256,7 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     oj (2.10.4)
+    open4 (1.3.4)
     ox (2.1.3)
     parser (2.2.0.2)
       ast (>= 1.1, < 3.0)
@@ -257,9 +271,8 @@ GEM
     rack (1.6.0)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-canonical-host (0.1.0)
-      addressable
-      rack (~> 1.0)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-livereload (0.3.15)
       rack
     rack-test (0.6.3)
@@ -283,17 +296,17 @@ GEM
     rails-assets-angular-mocks (1.3.3)
       rails-assets-angular (= 1.3.3)
     rails-assets-angular-multi-select (2.0.2)
-    rails-assets-angular-redactor (1.1.3)
+    rails-assets-angular-redactor (1.1.4)
       rails-assets-angular (>= 1.2.0)
       rails-assets-jquery (>= 2.0.0)
     rails-assets-angular-ui-sortable (0.13.3)
       rails-assets-angular (>= 1.2)
       rails-assets-jquery-ui (>= 1.9)
     rails-assets-jquery (2.1.3)
-    rails-assets-jquery-ui (1.11.3)
-      rails-assets-jquery (>= 1.7)
-    rails-assets-lodash (2.4.1)
-    rails-assets-moment (2.8.4)
+    rails-assets-jquery-ui (1.11.4)
+      rails-assets-jquery (>= 1.6)
+    rails-assets-lodash (3.5.0)
+    rails-assets-moment (2.9.0)
     rails-assets-normalize.css (3.0.2)
     rails-assets-rosie (0.3.1)
     rails-deprecated_sanitizer (1.0.3)
@@ -392,7 +405,7 @@ GEM
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
       oauth2 (>= 0.8.0)
-    spring (1.1.3)
+    spring (1.3.3)
     spring-commands-rspec (1.0.2)
       spring (>= 0.9.1)
     sprockets (2.12.3)
@@ -451,7 +464,7 @@ DEPENDENCIES
   bugsnag
   byebug
   capybara
-  capybara-angular
+  capybara-angular!
   capybara-screenshot
   capybara-slow_finder_errors
   capybara-webkit
@@ -469,10 +482,13 @@ DEPENDENCIES
   guard-livereload
   heroku_rails_deflate
   high_voltage (~> 2.2.1)
+  highline
   i18n-tasks (~> 0.7.8)
   jquery-rails
   konacha
   launchy
+  meta_request
+  mina
   neat
   newrelic_rpm (>= 3.7.3)
   oj
@@ -481,20 +497,19 @@ DEPENDENCIES
   pry
   quiet_assets
   rack-cache
-  rack-canonical-host
   rack-livereload
   rack-timeout
   rack_session_access
   rails (~> 4.2.0)
-  rails-assets-angular
+  rails-assets-angular!
   rails-assets-angular-mocks
-  rails-assets-angular-multi-select
-  rails-assets-angular-redactor
-  rails-assets-angular-ui-sortable
-  rails-assets-jquery-ui
-  rails-assets-lodash
-  rails-assets-moment
-  rails-assets-normalize.css
+  rails-assets-angular-multi-select (~> 2.0.2)!
+  rails-assets-angular-redactor!
+  rails-assets-angular-ui-sortable!
+  rails-assets-jquery-ui!
+  rails-assets-lodash!
+  rails-assets-moment!
+  rails-assets-normalize.css!
   rails-assets-rosie
   rails_12factor
   rb-fsevent

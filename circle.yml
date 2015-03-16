@@ -17,5 +17,7 @@ deployment:
   production:
     branch: master
     commands:
-      - git push --force git@heroku.com:right-books.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app right-books
+      - bin/build
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push mwean/right-books-app
+      - docker push mwean/right-books-web
