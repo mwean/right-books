@@ -27,7 +27,7 @@ feature 'home page' do
       category = create(:category)
       book = create(:book, category_ids: [category.id])
       home_page.load
-      home_page.categories.click_category(category.name)
+      home_page.categories.click_category(category)
 
       category_page = CategoryPage.new
       expect(category_page).to be_displayed
