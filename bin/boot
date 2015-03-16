@@ -6,7 +6,7 @@ docker run -d -e "POSTGRES_PASSWORD=$DATABASE_PASSWORD" --name db -v /var/lib/po
 
 if [ "$1" == "test" ]; then
   docker run -d --name app -e "RAILS_ENV=test" -e "SECRET_KEY_BASE=testing" \
-  -e "DATABASE_URL=$DATABASE_URL" --link db:db --link redis:redis mwean/right-books-app \
+  -e "DATABASE_URL=$DATABASE_URL" --link db:db --link redis:redis mwean/right-books-app
 else
   docker run -d --name app --env-file "shared/.env" -p "3000:3000" \
   --link db:db --link redis:redis mwean/right-books-app bundle exec unicorn -c ./config/unicorn.rb

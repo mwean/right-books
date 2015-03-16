@@ -7,7 +7,8 @@ require 'securerandom'
 set :domain, ask('Domain: ') { |q| q.default = 'right-books.com' }
 set :deploy_to, '/var/www/right-books'
 set :repository, 'git@github.com:mwean/right-books.git'
-set :branch, ask('Branch: ') { |q| q.default = 'master' }
+set :branch, 'master'
+set :forward_agent, true
 
 set :shared_paths, ['log']
 
@@ -21,9 +22,15 @@ task setup: :environment do
   build_host_env_file
   set_up_swapfile
   generate_ssh_key
-  create_log_dir
-  invoke :'git:clone'
-  invoke :'deploy:link_shared_paths'
+  install_new_relic
+  add_known_hosts
+
+  deploy do
+    create_log_dir
+    invoke :'git:clone'
+    invoke :'deploy:link_shared_paths'
+  end
+
   build_docker_containers
   build_app_env_file
   set_up_app
@@ -33,6 +40,7 @@ end
 
 def get_env_values
   set :new_relic_key, ask('New Relic key:')
+  set :bugsnag_key, ask('Bugsnag key:')
   set :aws_access_key, ask('AWS access key:')
   set :aws_secret_key, ask('AWS secret key:')
   set :amazon_associate_tag, ask('Amazon associate tag:')
@@ -48,7 +56,7 @@ def build_host_env_file
   queue %(echo "#{host_env_vars}" >> /etc/profile.d/env.sh)
   queue 'chmod +x /etc/profile.d/env.sh'
   queue 'source /etc/profile.d/env.sh'
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
 end
 
 def set_up_swapfile
@@ -58,20 +66,20 @@ def set_up_swapfile
   queue 'sudo mkswap /swapfile'
   queue 'sudo swapon /swapfile'
   queue 'sudo echo "/swapfile  none  swap  sw  0  0" >> /etc/fstab'
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
 end
 
 def generate_ssh_key
   queue 'echo "-----> Generating SSH key"'
-  queue 'ssh-keygen -f id_rsa -t rsa -N "" -C "right-books-server"'
-  queue 'echo "-----> Success'
+  queue 'ssh-keygen -f ~/.ssh/id_rsa -t rsa -N "" -C "right-books-server"'
+  queue 'echo "-----> Done."'
 end
 
 def install_new_relic
   queue 'echo "-----> Installing New Relic"'
 
   queue <<-SH
-    echo deb http://apt.newrelic.com/debian/ newrelic non-free >> \
+    echo "deb http://apt.newrelic.com/debian/ newrelic non-free" >> \
     /etc/apt/sources.list.d/newrelic.list
   SH
 
@@ -79,20 +87,27 @@ def install_new_relic
   queue 'apt-get update && apt-get install newrelic-sysmond'
   queue "nrsysmond-config --set license_key=#{new_relic_key}"
   queue '/etc/init.d/newrelic-sysmond start'
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
 end
 
 def create_log_dir
   queue 'echo "-----> Setting up log dir"'
   queue! %(mkdir -p "#{deploy_to}/#{shared_path}/log")
   queue! %(chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/log")
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
+end
+
+def add_known_hosts
+  queue! <<-SH
+    echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
+  SH
 end
 
 def build_docker_containers
   queue 'echo "-----> Building Docker containers"'
-  queue! "#{deploy_to}/#{current_path}/bin/build"
-  queue 'echo "-----> Success'
+  queue "cd #{deploy_to}/#{current_path}"
+  queue! 'bin/build'
+  queue 'echo "-----> Done."'
 end
 
 def build_app_env_file
@@ -100,7 +115,7 @@ def build_app_env_file
 
   queue 'echo "-----> Setting up app env variables"'
   queue %(echo "#{app_env_vars}" >> #{deploy_to}/#{shared_path}/.env)
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
 end
 
 def set_up_app
@@ -118,13 +133,13 @@ def set_up_app
   SH
 
   queue 'docker stop db && docker rm db'
-  queue 'echo "-----> Success'
+  queue 'echo "-----> Done."'
 end
 
 def boot_app
   queue 'echo "-----> Booting app"'
-  queue! "#{deploy_to}/#{current_path}/bin/boot"
-  queue 'echo "-----> Success'
+  queue! 'bin/boot'
+  queue 'echo "-----> Done."'
 end
 
 def print_public_key
