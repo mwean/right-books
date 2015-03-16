@@ -41,3 +41,7 @@
 .political-philosophy {
   @include background-image(image-url("category-pictures/philosophy.png"));
 }
+
+.economics {
+ @include background-image(image-url("category-pictures/economics.png"));
+}
