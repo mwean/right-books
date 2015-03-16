@@ -123,7 +123,7 @@ def set_up_app
 
   queue <<-SH
     docker run -d --name db -e "POSTGRES_PASSWORD=#{db_password}" \
-    -v /var/lib/postgresql/data:/var/lib/postgresql/data mwean/right-books-db
+    -v /var/lib/postgresql/data:/var/lib/postgresql/data postgres:latest
   SH
 
   queue <<-SH

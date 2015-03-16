@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-docker run -d --name redis mwean/right-books-redis
+docker run -d --name redis redis:latest
 
-docker run -d -e "POSTGRES_PASSWORD=$DATABASE_PASSWORD" --name db -v /var/lib/postgresql/data:/var/lib/postgresql/data mwean/right-books-db
+docker run -d -e "POSTGRES_PASSWORD=$DATABASE_PASSWORD" --name db -v /var/lib/postgresql/data:/var/lib/postgresql/data postgres:latest
 
 if [ "$1" == "test" ]; then
   docker run -d --name app -e "RAILS_ENV=test" -e "SECRET_KEY_BASE=testing" \
