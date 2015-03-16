@@ -1,0 +1,2 @@
+export DATABASE_PASSWORD=<%= db_password %>
+export DATABASE_URL=<%= db_url %>

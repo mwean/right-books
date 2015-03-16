@@ -20,14 +20,15 @@
 #
 # Indexes
 #
-#  index_books_on_category_ids  (category_ids)
-#  index_books_on_slug          (slug) UNIQUE
+#  index_books_on_slug  (slug) UNIQUE
 #
 
 class Book < ActiveRecord::Base
   extend FriendlyId
 
   has_many :comments
+  has_many :categorizations
+  has_many :categories, through: :categorizations
 
   friendly_id :slug_candidates, use: :slugged
 
@@ -49,11 +50,6 @@ class Book < ActiveRecord::Base
     order(publish_date: :desc).limit(count)
   end
 
-  def self.with_category_id(category_id)
-    array_str = Arel::Nodes.build_quoted("{#{category_id}}")
-    where(Arel::Nodes::InfixOperation.new('@>', arel_table[:category_ids], array_str))
-  end
-
   def slug_candidates
     [:title, %i(title authors_sentence)]
   end
@@ -66,16 +62,8 @@ class Book < ActiveRecord::Base
     self.authors = list.split(/,\s*/)
   end
 
-  def category_ids=(ids)
-    ids.is_a?(Array) ? super : super(ids.split(/,\s*/))
-  end
-
   def authors_sentence
     authors.to_sentence
-  end
-
-  def categories
-    Category.where(id: category_ids)
   end
 
   def normalize_friendly_id(value)

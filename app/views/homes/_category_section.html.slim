@@ -1,0 +1,10 @@
+.section.section--border
+  .row
+    .section__header
+      h3.section__title= category_section.name
+
+      = link_to category_path(category_section.category), class: ['section__link', 'right-arrow', 'small-caps-link'] do
+        | See More
+
+    .section__content
+      = render 'books', books: category_section.books, book_class: 'book'

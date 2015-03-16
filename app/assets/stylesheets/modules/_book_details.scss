@@ -1,5 +1,6 @@
 .book-details__title {
-  margin-bottom: 5px;
+  margin-bottom: 16px;
+  line-height: .8;
 }
 
 .book-details__subtitle {
@@ -10,6 +11,7 @@
 .book-details__author {
   font-size: $h2-font-size;
   font-weight: $semi-bold;
+  margin-bottom: 10px;
 }
 
 .book-details__cover {

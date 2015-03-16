@@ -37,6 +37,9 @@ PredicateName:
     - is_
     - have_
 
+Style/SignalException:
+  Enabled: false
+
 RSpec/DescribeClass:
   Enabled: false
 RSpec/DescribedClass:
@@ -56,5 +59,6 @@ AllCops:
     - vendor/**/*
     - bin/**/*
     - lib/templates/**/*
+    - config/deploy.rb
 
   RunRailsCops: true

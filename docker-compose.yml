@@ -1,0 +1,27 @@
+db:
+  build: .
+  dockerfile: containers/db.docker
+  volumes:
+    - /etc/postgresql
+    - /var/log/postgresql
+    - /var/lib/postgresql/data
+app:
+  build: .
+  dockerfile: containers/app.docker
+  environment:
+    RACK_ENV: production
+    RAILS_ENV: production
+    PORT: 3000
+  command: "cat Procfile | grep web: | cut -d ' ' -f 2-"
+  restart: always
+  ports:
+    - "3000"
+  links:
+    - db
+    - redis
+web:
+  build: .
+  dockerfile: containers/web.docker
+redis:
+  build: .
+  dockerfile: containers/redis.docker

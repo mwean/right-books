@@ -15,7 +15,7 @@
   }
 
   height: 100%;
-  padding: 1.5em;
+  padding: 2.3em;
   margin-bottom: 1em;
 
   border-radius: 15px;
@@ -27,4 +27,17 @@
   &:hover {
     background-color: lighten($light-gray, 50%);
   }
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.history {
+  @include background-image(image-url("category-pictures/history.png"));
+}
+
+.political-philosophy {
+  @include background-image(image-url("category-pictures/philosophy.png"));
 }

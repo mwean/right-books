@@ -1,7 +1,44 @@
+.mt--small {
+  margin-top: $small;
+}
+
+.mt--medium {
+  margin-top: $medium;
+}
+
+.mt--medium-large {
+  margin-top: $medium-large;
+}
+
 .mt--large {
   margin-top: $large;
 }
 
 .mt--xl {
   margin-top: $xl;
+}
+
+.pt--0 {
+  padding-top: 0;
+}
+
+.pt--medium {
+  padding-top: 30px;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.ta-c {
+  text-align: center;
+  float: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.thin {
+  font-weight: $thin;
 }

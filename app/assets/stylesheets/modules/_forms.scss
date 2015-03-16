@@ -1,0 +1,106 @@
+fieldset {
+  margin: 0 0 ($base-spacing / 2) 0;
+  padding: $base-spacing;
+}
+
+input,
+label,
+select {
+  display: block;
+  font-family: $form-font-family;
+  font-size: $form-font-size;
+}
+
+label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: $base-spacing / 4;
+  letter-spacing: .75px;
+
+  abbr {
+    display: none;
+  }
+}
+
+input {
+  @include box-sizing(border-box);
+  @include transition(border-color);
+  background-color: white;
+  border: 1px solid $faint-gray;
+  padding: ($base-spacing / 3) ($base-spacing / 3);
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+
+  &:focus {
+    border-color: $form-border-color-focus;
+    outline: none;
+  }
+}
+
+select {
+  margin-bottom: $base-spacing;
+  max-width: 100%;
+  width: auto;
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-right: $base-spacing / 4;
+  }
+}
+
+.form-inputs input {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  position: relative;
+  color: $medium-gray;
+
+  @include placeholder {
+    font-size: 90%;
+    color: lighten($faint-gray, 5);
+    letter-spacing: .5px;
+  }
+}
+
+.input {
+  position: relative;
+}
+
+.input--email, .input--password, .input--name {
+  & > input {
+    padding-left: 38px;
+  }
+
+  &:after {
+    font-family: right-books;
+    position: absolute;
+    padding-left: 16px;
+    margin-top: 8px;
+    top: 0;
+    color: lighten($faint-gray, 5);
+  }
+}
+
+.input--email {
+  &:after {
+    content: $email-icon;
+    font-size: 75%;
+  }
+}
+
+.input--password {
+  &:after {
+    content: $password-icon;
+    font-size: 90%;
+  }
+}
+
+.input--name {
+  &:after {
+    content: $user-icon;
+    font-size: 90%;
+  }
+}
+
+

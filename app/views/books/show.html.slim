@@ -8,18 +8,22 @@
       = @book.publisher
       p Published #{@book.publish_date.strftime('%D')}
 
-  .l-main-section--constrained
-    .section
+  .l-main-section--constrained.pt--0
+    .row.section--book-info
       h1.book-details__title= @book.title
       h2.book-details__subtitle= @book.subtitle
       h2.book-details__author= @book.authors_sentence
+      = category_links(@book)
 
-      - if @book.editor_notes
+    - if @book.editor_notes
+      .row.editor-comments
+        h2.section__header Rightbooks Editor's Notes
         == @book.editor_notes
 
-    .section
+    .row
       h2.section__header Book Description
       expandable-section.ng-cloak== @book.description
 
-    .section
+    .row
+      h2.section__header Reader Comments
       comments-section

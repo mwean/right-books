@@ -8,7 +8,7 @@ $blue: #477DCA;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: #a91d1d;
+$base-accent-color: #477DCA;
 
 // Link Colors
 $base-link-color: $dark-gray;
@@ -35,6 +35,14 @@ $title-size:          em(32);
 $title-size--medium:  em(40);
 $title-size--large:   em(48);
 
+// Font Icons
+$email-icon: "\E801";
+$password-icon: "\E802";
+$user-icon: "\E803";
+$search-icon: "\E804";
+$open-quote: "\201C";
+$close-quote: "\201D";
+
 // Line heights
 $base-line-height: $base-font-size * 1.5;
 $base-line-height--small:  22px;
@@ -48,7 +56,27 @@ $bold: 700;
 // Margin + Padding Sizes
 $small:   10px;
 $medium:  20px;
+$medium-large: 30px;
 $large:   40px;
 $xl:      80px;
 
 $primary-header-height: 58px;
+
+$nav-border: 1px rgba(0,0,0,0.1) solid;
+
+// Sass Maps
+
+$people: (
+  david-horowitz: david-horowitz,
+);
+
+ @each $person, $person-pic in $people {
+  .person-pic--#{$person} {
+    &:before {
+      float: left;
+      padding-right: 20px;
+      content: image-url("person-pictures/#{$person-pic}.png");
+      margin: 0;
+    }
+  }
+}

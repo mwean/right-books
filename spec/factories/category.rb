@@ -1,13 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    NAMES = [
-      'History',
-      'Biography & Memoir',
-      'Political Philosophy',
-      'Economics',
-      'Culture'
-    ]
-
-    name { NAMES.sample }
+    key { HomesController::FEATURED_CATEGORY_KEYS.sample }
+    name { key.titleize }
   end
 end

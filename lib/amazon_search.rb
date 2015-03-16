@@ -4,7 +4,7 @@ class AmazonSearch
   end
 
   def results
-    items.map { |item| AmazonResult.new(item) }.select { |result| result.isbn.present? }
+    items.map { |item| AmazonResult.new(item) }.compact
   end
 
   private

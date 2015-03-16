@@ -1,9 +1,15 @@
 module Admin
   class BooksController < AdminController
     before_action :load_book, only: %i(edit update)
+    before_action :set_view_filter, only: :index
 
     def index
-      @books = Book.order(created_at: :desc)
+      gon.push(
+        books: ActiveModel::ArraySerializer.new(load_books).as_json,
+        sortable: @filter_category.present?,
+        sort_path: sort_admin_books_path,
+        category_id: @filter_category && @filter_category.id
+      )
     end
 
     def new
@@ -31,6 +37,15 @@ module Admin
       redirect_to admin_books_path
     end
 
+    def sort
+      Categorization.update_display_order(
+        category_id: params[:category_id],
+        book_ids: params[:book_ids]
+      )
+
+      head :ok
+    end
+
     def search
       results = AmazonSearch.new(params[:q]).results.take(5)
       store_results(results)
@@ -44,6 +59,30 @@ module Admin
     end
 
     private
+
+    attr_reader :filter_name, :filter_category
+    helper_method :filter_name, :filter_categories
+
+    def load_books
+      if @filter_category
+        @filter_category.ordered_books
+      else
+        Book.order(created_at: :desc)
+      end
+    end
+
+    def set_view_filter
+      @filter_category = Category.find_by(slug: params[:category])
+      @filter_name = @filter_category ? @filter_category.name : 'All books'
+    end
+
+    def filter_categories
+      if @filter_category
+        [BlankCategory.new] + Category.all - [@filter_category]
+      else
+        Category.all
+      end
+    end
 
     def load_book
       @book = Book.find_by(slug: params[:id])
@@ -70,8 +109,14 @@ module Admin
     end
 
     def book_params
-      params.require(:book)
-        .permit(:title, :subtitle, :authors_list, :category_ids, :editor_notes, :description)
+      params.require(:book).permit(
+        :title,
+        :subtitle,
+        :authors_list,
+        { category_ids: [] },
+        :editor_notes,
+        :description
+      )
     end
 
     def store_results(results)

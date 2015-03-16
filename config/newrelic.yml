@@ -30,5 +30,5 @@ production:
   monitor_mode: true
 acceptance:
   <<: *default_settings
-  app_name: "Right Books (Staging)"
+  app_name: "Right Books (Acceptance)"
   monitor_mode: true

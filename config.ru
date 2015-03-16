@@ -2,7 +2,4 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 
-# Redirect to the custom (canonical) hostname.
-use Rack::CanonicalHost, ENV['HOSTNAME'] if ENV['HOSTNAME']
-
 run Rails.application

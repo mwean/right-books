@@ -5,6 +5,12 @@ class AmazonResult
   attr_accessor :cover_image_url, :publish_date, :publisher, :description
   attr_accessor :amazon_link, :isbn
 
+  def self.new(data = nil)
+    super
+  rescue KeyError
+    return nil
+  end
+
   def initialize(data = nil)
     return unless data
     @data = data
@@ -15,9 +21,9 @@ class AmazonResult
     set_authors
     set_isbn
 
-    self.publish_date = @data['ItemAttributes']['PublicationDate']
-    self.publisher    = @data['ItemAttributes']['Publisher']
-    self.amazon_link  = @data['DetailPageURL']
+    self.publish_date = item_attributes['PublicationDate']
+    self.publisher    = item_attributes['Publisher']
+    self.amazon_link  = @data.fetch('DetailPageURL')
   end
 
   def save
@@ -38,34 +44,39 @@ class AmazonResult
   private
 
   def set_titles
-    title_parts = @data['ItemAttributes']['Title'].split(': ')
+    title_parts = item_attributes.fetch('Title').split(': ')
 
     self.title    = title_parts[0]
     self.subtitle = title_parts[1]
   end
 
   def set_images
-    image_sets = [@data['ImageSets']['ImageSet']].flatten
+    image_sets = [@data.fetch('ImageSets').fetch('ImageSet')].flatten
 
-    self.small_cover_image_url = image_sets.first['SmallImage']['URL']
-    self.cover_image_url       = image_sets.first['LargeImage']['URL']
+    self.small_cover_image_url = image_sets.first.fetch('SmallImage').fetch('URL')
+    self.cover_image_url       = image_sets.first.fetch('LargeImage').fetch('URL')
   end
 
   def set_description
-    self.description = [@data['EditorialReviews']['EditorialReview']].flatten.first['Content']
+    reviews = @data.fetch('EditorialReviews').fetch('EditorialReview')
+    self.description = [reviews].flatten.first.fetch('Content')
   end
 
   def set_authors
-    if @data['ItemAttributes']['Author']
-      self.authors = [@data['ItemAttributes']['Author']].flatten
+    if item_attributes['Author']
+      self.authors = [item_attributes.fetch('Author')].flatten
     else
-      creators = @data['ItemAttributes']['Creator'].map { |creator| creator['__content__'] }
+      creators = item_attributes.fetch('Creator').map { |creator| creator.fetch('__content__') }
       self.authors = creators.uniq
     end
   end
 
   def set_isbn
-    self.isbn = @data['ItemAttributes']['ISBN'] || @data['ItemAttributes']['EISBN']
+    self.isbn = item_attributes['ISBN'] || item_attributes.fetch('EISBN')
+  end
+
+  def item_attributes
+    @data.fetch('ItemAttributes')
   end
 
   def attribute_values

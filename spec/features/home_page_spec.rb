@@ -27,7 +27,7 @@ feature 'home page' do
       category = create(:category)
       book = create(:book, category_ids: [category.id])
       home_page.load
-      home_page.categories.click_category(category.name)
+      home_page.categories.click_category(category)
 
       category_page = CategoryPage.new
       expect(category_page).to be_displayed
@@ -35,7 +35,7 @@ feature 'home page' do
     end
   end
 
-  scenario 'user clicks sign up link and creates an account', :js do
+  scenario 'user clicks sign up link and creates an account' do
     sign_up_page = SignUpPage.new
     user = build_stubbed(:user)
     home_page.load

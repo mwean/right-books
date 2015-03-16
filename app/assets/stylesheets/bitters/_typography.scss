@@ -78,9 +78,20 @@ picture {
 
 blockquote {
   border-left: 2px solid $base-border-color;
-  color: lighten($base-font-color, 15);
-  margin: $base-spacing 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 27px;
+  margin-left: 0;
   padding-left: $base-spacing / 2;
+  quotes: "\201C""\201D""\2018""\2019";
+
+  &:before {
+    @include quotation-mark($open-quote, open);
+  }
+
+  &:after {
+    @include quotation-mark($close-quote, closed);
+  }
 }
 
 cite {
@@ -89,5 +100,24 @@ cite {
 
   &:before {
     content: "\2014 \00A0";
+  }
+}
+
+.citation {
+  display: block;
+
+
+  .name {
+    font-size: 95%;
+    font-weight: $bold;
+    display: block;
+    margin-bottom: -5px;
+  }
+
+  .affiliation {
+    color: darken($faint-gray, 15);
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 1px;
   }
 }

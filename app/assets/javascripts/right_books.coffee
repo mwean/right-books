@@ -1,4 +1,11 @@
-app = angular.module('rightBooks', ['templates', 'angular-redactor', 'multi-select'])
+dependencies = [
+  'templates',
+  'angular-redactor',
+  'multi-select',
+  'ui.sortable'
+]
+
+app = angular.module('rightBooks', dependencies)
 
 redactorConfig = (redactorOptions) ->
   redactorOptions.buttons = ['bold', 'italic', 'link']

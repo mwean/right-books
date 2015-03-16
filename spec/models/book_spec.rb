@@ -12,14 +12,4 @@ describe Book do
       expect(new_releases.map(&:publish_date)).not_to include(oldest_date)
     end
   end
-
-  describe '.with_category_id' do
-    it 'returns all books with that category id' do
-      book1 = create(:book, category_ids: [1, 2])
-      create(:book, category_ids: [3])
-
-      expect(Book.with_category_id(1)).to eq([book1])
-      expect(Book.with_category_id(2)).to eq([book1])
-    end
-  end
 end

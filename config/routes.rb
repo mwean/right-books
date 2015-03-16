@@ -1,15 +1,16 @@
 RightBooks::Application.routes.draw do
   resources :books, only: :show do
-    member { post :comment }
+    resources :comments, only: %i(create destroy), shallow: true
   end
+
+  get 'categories/new-releases', controller: :categories, action: :new_releases
+  get :new_releases, controller: :categories, action: :new_releases
 
   resources :categories, only: :show
 
   resources :users, only: :create do
     collection { get :email }
   end
-
-  get :new_releases, controller: :books, action: :new_releases
 
   get :sign_up, controller: :users, action: :new
 
@@ -21,7 +22,10 @@ RightBooks::Application.routes.draw do
     root controller: :books, action: :index
 
     resources :books do
-      collection { get :search }
+      collection do
+        get :search
+        put :sort
+      end
     end
   end
 

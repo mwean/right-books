@@ -7,7 +7,7 @@ feature 'admin book list page' do
 
   background { sign_in_user(user) }
 
-  scenario 'admin sees a list of existing books and adds a new one', :js do
+  scenario 'admin sees a list of existing books and adds a new one' do
     new_book_page = Admin::NewBookPage.new
     new_book = build_stubbed(:book)
     FakeAmazon.stub_search_results([new_book])
@@ -16,11 +16,9 @@ feature 'admin book list page' do
     expect(admin_books_page).to have_books(count: 1)
 
     admin_books_page.new_book_button.click
+    admin_books_page.wait_for_book_search_modal
     book_search_modal = admin_books_page.book_search_modal
     book_search_modal.search_field.set(new_book.title)
-
-    # Switch to #trigger method once phantomjs error is fixed
-    page.execute_script('$("#new-book-search").trigger("change")')
     book_search_modal.wait_for_results
 
     expect(book_search_modal).to have_results(count: 1)

@@ -1,0 +1,35 @@
+.media,
+.media__bd {
+  overflow: hidden;
+}
+
+.media__img {
+  margin-left: 0;
+  margin-right: $xl;
+  float: left;
+
+  img {
+    display: block;
+  }
+}
+
+.media__img--small {
+  @extend .media__img;
+
+  margin-right: $small;
+
+  img {
+    max-width: 70%;
+  }
+}
+
+.media__img--medium {
+  img {
+    max-width: 80%;
+  }
+}
+
+.media--centered {
+  @include span-columns(7);
+  @include shift(2.5);
+}

@@ -21,7 +21,7 @@ html
 
         ul.nav
           li= link_to 'Browse', '#', class: 'nav__link'
-          li= link_to 'About', '#', class: 'nav__link'
+          li= link_to 'About', page_path('about'), class: 'nav__link'
           li= link_to 'Contact', '#', class: 'nav__link'
           - if current_user
             user-nav user-name=current_user.first_name sign-out-path=sign_out_path

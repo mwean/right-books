@@ -4,7 +4,6 @@ header {
 
 main {
   height: 100%;
-  padding-bottom: 100px;
 }
 
 .l-constrained {
@@ -15,27 +14,42 @@ main {
   margin-right: auto;
 }
 
+.l-outer-container {
+  @include outer-container;
+}
+
 .l-side-section {
-  @include span-columns(3);
+  @include span-columns(2.5);
+}
+
+.l-side-section--light {
+  @extend .l-side-section;
+  background-color: #f1eee5;
 }
 
 .l-main-section {
-  padding-top: $xl;
-}
-
-.l-main-section--constrained {
-  @include outer-container();
-  @include span-columns(9);
-  padding-left: 40px;
+  margin-top: 60px;
 
   & > * + * {
-    padding-top: $large;
+    padding-top: 60px;
   }
 }
 
-.l-full-section {
-  @include span-columns(12);
-  @include omega;
+.l-main-section--constrained {
+  @include outer-container;
+  @include span-columns(9);
+
+  margin-right: 0;
+  padding-left: 20px;
+
+  & > * + * {
+    margin-top: $large;
+  }
+}
+
+.l-main-section--constrained--with-side-nav {
+  @include span-columns(9.5);
+  padding: 0 20px;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

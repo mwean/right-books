@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_config
-    gon.push(signed_in: current_user.present?)
+    gon.push(
+      signed_in: current_user.present?,
+      is_admin: current_user.try(:admin?)
+    )
   end
 end

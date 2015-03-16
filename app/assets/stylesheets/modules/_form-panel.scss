@@ -1,0 +1,20 @@
+.form-panel {
+  max-width: 430px;
+  margin: auto;
+  border: 1px solid $faint-gray;
+  border-radius: 20px;
+}
+
+.form-panel__title {
+  padding: 40px 0 0;
+  margin: auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 26.5px;
+}
+
+.form-panel__content {
+  padding: 40px;
+  width: 375px;
+  margin: auto;
+}
