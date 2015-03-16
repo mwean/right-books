@@ -44,8 +44,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-normalize.css'
 end
 
-group :production, :acceptance do
+group :acceptance do
   gem 'heroku_rails_deflate'
+end
+
+group :production, :acceptance do
   gem 'rack-cache'
   gem 'rack-timeout'
   gem 'rails_12factor'
