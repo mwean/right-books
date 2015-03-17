@@ -4,12 +4,9 @@
 development: &default
   adapter: postgresql
   encoding: utf8
-  database: right_books_development
-  username: postgres
   pool: 2
   timeout: 5000
 
 test:
   <<: *default
-  database: right_books_test
   min_messages: warning

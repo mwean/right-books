@@ -1,4 +1,4 @@
-*.docker
+circle.yml
 .git
 
 *.DS_Store
@@ -26,3 +26,4 @@ public/assets/
 
 node_modules
 .env
+vendor/bundle

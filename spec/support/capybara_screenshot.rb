@@ -5,7 +5,7 @@ Capybara::Screenshot.register_driver(:chrome) do |driver, path|
   driver.browser.save_screenshot(path)
 end
 
-if ENV['CIRCLE_ARTIFACTS']
-  path = File.join('..', '..', '..', ENV['CIRCLE_ARTIFACTS'], 'screenshots')
+if ENV['ARTIFACTS']
+  path = File.join('..', '..', '..', ENV['ARTIFACTS'], 'screenshots')
   Capybara.save_and_open_page_path = path.to_s
 end
