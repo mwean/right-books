@@ -45,3 +45,7 @@
 .economics {
  @include background-image(image-url("category-pictures/economics.png"));
 }
+
+.biography-memoir {
+  @include background-image(image-url("category-pictures/test.png"));
+}
