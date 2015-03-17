@@ -1,0 +1,28 @@
+db:
+  image: postgres:latest
+  volumes:
+    - /etc/postgresql
+    - /var/log/postgresql
+    - /var/lib/postgresql/data
+app:
+  build: .
+  dockerfile: infrastructure/app/Dockerfile
+  environment:
+    RACK_ENV: production
+    RAILS_ENV: production
+    PORT: 3000
+  command: "cat Procfile | grep web: | cut -d ' ' -f 2-"
+  ports:
+    - "3000"
+  links:
+    - db
+    - redis
+web:
+  image: nginx:latest
+  dockerfile: infrastructure/web/Dockerfile
+  volumes:
+    - infrastructure/web/nginx.conf:/etc/nginx/nginx.conf:ro
+  links:
+    - app
+redis:
+  image: redis:latest
