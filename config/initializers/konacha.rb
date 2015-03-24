@@ -7,6 +7,8 @@ if defined?(Konacha)
 
       config.driver = :selenium_chrome
     else
+      require 'capybara-webkit'
+
       config.driver = :webkit
     end
   end

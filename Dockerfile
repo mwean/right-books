@@ -3,9 +3,11 @@ MAINTAINER Matt Wean <matthew.wean@gmail.com>
 
 WORKDIR /usr/src/app
 
-RUN apt-get update \
-  && apt-get install -y \
-  net-tools qt5-default libqt5webkit5-dev nodejs \
+RUN apt-get update && apt-get install -y \
+  libqt5webkit5-dev \
+  nodejs \
+  qt5-default \
+  xvfb \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app
@@ -15,7 +17,7 @@ ENV PORT=3000
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 
-RUN bundle install --without development
+RUN bundle install --path=vendor/bundle --without development -j4
 
 COPY . /usr/src/app/
 

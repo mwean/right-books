@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "up" ]; then
+  bin/docker-compose -f spec/docker-compose.yml up
+else
+  bin/docker-compose -f spec/docker-compose.yml run app bundle exec "${*:2}"
+fi

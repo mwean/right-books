@@ -73,7 +73,7 @@ group :test, :development do
   gem 'byebug'
   gem 'capybara-slow_finder_errors', require: false
   gem 'coffeelint', '~> 0.4.0'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.0.0'
   gem 'eventmachine', '~> 1.0.4'
   gem 'faker'
   gem 'i18n-tasks', '~> 0.7.8'

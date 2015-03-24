@@ -15,4 +15,6 @@ end
 task(:default).clear
 task default: 'rubocop'
 task default: 'coffeelint'
-task default: 'spec'
+task default: 'spec:without_features'
+task default: 'konacha:run'
+task default: 'spec:features'

@@ -1,0 +1,21 @@
+db:
+  image: postgres:latest
+  volumes:
+    - /etc/postgresql
+    - /var/log/postgresql
+    - /var/lib/postgresql/data
+app:
+  build: .
+  env_file:
+    - ".env.test"
+  environment:
+    - DATABASE_URL=postgres://postgres@db/right_books_test?pool=5
+    - ARTIFACTS=$ARTIFACTS
+  links:
+    - db
+    - redis
+  volumes:
+    - $PWD/vendor/bundle:/var/www/right-books/vendor/bundle
+    - $ARTIFACTS:$ARTIFACTS
+redis:
+  image: redis:latest

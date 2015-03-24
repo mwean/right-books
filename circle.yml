@@ -1,11 +1,47 @@
+machine:
+  services:
+    - docker
+  environment:
+    SHORT_SHA: $(echo $CIRCLE_SHA1 | cut -c-7)
+
+checkout:
+  post:
+    # reset mtime to actual changed time in order to have Docker use the cached Gemfile
+    - for x in Gemfile* ; do touch -t $(date -d "$(git log -1 --format=%ci "${x}")" +%y%m%d%H%M.%S) "${x}"; done
+    # - touch -t 1503200438.52 vendor/bundle
+
+dependencies:
+  pre:
+    - sudo curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > bin/docker-compose
+    - chmod +x bin/docker-compose
+    - mkdir -p ~/docker
+  cache_directories:
+    - "~/docker"
+  override:
+    - "if [[ -e ~/docker/right-books-app.tar ]]; then docker load -i ~/docker/right-books-app.tar; fi"
+    - "if [[ -e ~/docker/postgres.tar ]]; then docker load -i ~/docker/postgres.tar; else docker pull postgres:latest && docker save 'postgres' > ~/docker/postgres.tar; fi"
+    - "if [[ -e ~/docker/redis.tar ]]; then docker load -i ~/docker/redis.tar; else docker pull redis:latest && docker save 'redis' > ~/docker/redis.tar; fi"
+    - docker build -t mwean/right-books-app:$SHORT_SHA .
+    - docker save "mwean/right-books-app" > ~/docker/right-books-app.tar
+    - docker run -d --name redis redis
+    - docker run -d --name db postgres
+
+database:
+  override:
+    # - bin/compose-test run rake db:create db:schema:load --trace
+    - docker run --env-file .env.test --link db:db --link redis:redis mwean/right-books-app:$SHORT_SHA rake db:create db:schema:load --trace
+
 test:
   override:
-    - bundle exec rake rubocop
-    - bundle exec rake coffeelint
-    - bundle exec brakeman -A --no-combine-locations -z -o $CIRCLE_ARTIFACTS/brakeman.html
-    - bundle exec rake spec:without_features
-    - bundle exec rake konacha:run
-    - bundle exec rake spec:features
+    - "docker run --env-file=.env.test --link db:db --link redis:redis mwean/right-books-app:$SHORT_SHA bin/ci_specs"
+    # - docker run --env-file .env.test -e DATABASE_URL=postgres://postgres@db/right_books_test?pool=5 -e ARTIFACTS=$ARTIFACTS -e CI=true --link db:db --link redis:redis -v $ARTIFACTS:$ARTIFACTS mwean/right-books-app:$SHORT_SHA xvfb-run -a bundle exec rake
+    # - docker run --env-file .env.test -e DATABASE_URL=postgres://postgres@db/right_books_test?pool=5 -e ARTIFACTS=$ARTIFACTS --link db:db --link redis:redis -v $ARTIFACTS:$ARTIFACTS mwean/right-books-app:$SHORT_SHA bundle exec brakeman -A --no-combine-locations -z -o $ARTIFACTS/brakeman.html
+    # - bin/compose-test run rake rubocop
+    # - bin/compose-test run rake coffeelint
+    # - bin/compose-test run brakeman -A --no-combine-locations -z -o $ARTIFACTS/brakeman.html
+    # - bin/compose-test run rake spec:without_features
+    # - bin/compose-test run rake konacha:run
+    # - bin/compose-test run rake spec:features
 
 deployment:
   acceptance:
@@ -17,7 +53,5 @@ deployment:
   production:
     branch: master
     commands:
-      - bin/build
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push mwean/right-books-app
-      - docker push mwean/right-books-web
+      - docker push mwean/right-books-app:$SHORT_SHA
