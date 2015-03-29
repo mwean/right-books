@@ -1,10 +1,14 @@
 category_info = [
-  [:fiction, 'Fiction'],
+  [:fiction, 'Fiction & Literature'],
   [:history, 'History'],
   [:biography, 'Biography & Memoir'],
   [:philosophy, 'Political Philosophy'],
+  [:politics, 'Politics'],
   [:culture, 'Culture'],
-  [:economics, 'Economics'],
+  [:current_events, 'Current Events'],
+  [:classics, 'Classics'],
+  [:conservatism, 'Conservatism'],
+  [:religion, 'Religion'],
   [:essentials, 'Essentials']
 ]
 

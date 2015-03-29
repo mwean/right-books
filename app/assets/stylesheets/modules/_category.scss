@@ -42,10 +42,6 @@
   @include background-image(image-url("category-pictures/philosophy.png"));
 }
 
-.economics {
- @include background-image(image-url("category-pictures/economics.png"));
-}
-
 .biography-memoir {
   @include background-image(image-url("category-pictures/bio.png"));
 }
