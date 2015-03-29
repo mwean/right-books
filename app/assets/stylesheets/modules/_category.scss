@@ -19,7 +19,7 @@
   margin-bottom: 1em;
 
   border-radius: 15px;
-  border: 1px solid $light-gray;
+  border: 1px solid $faint-gray;
   transition: background-color 0.3s;
 
   text-align: center;
@@ -35,13 +35,17 @@
 
 
 .history {
-  @include background-image(image-url("category-pictures/history.png"));
+  @include background-image(image-url("category-pictures/history-test-2.png"));
 }
 
 .political-philosophy {
-  @include background-image(image-url("category-pictures/philosophy.png"));
+  @include background-image(image-url("category-pictures/philosophy-test.png"));
 }
 
 .biography-memoir {
   @include background-image(image-url("category-pictures/bio.png"));
+}
+
+.current-events {
+  @include background-image(image-url("category-pictures/current-events.png"));
 }
