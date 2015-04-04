@@ -18,7 +18,7 @@
 class Category < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :categorizations
+  has_many :categorizations, dependent: :destroy
   has_many :books, through: :categorizations
 
   friendly_id :name, use: :slugged
