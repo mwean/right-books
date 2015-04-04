@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-export CI=true
-# export DISPLAY=:99
-export REDIS_URL=redis://$REDIS_PORT_6379_TCP_ADDR:6379
-# Xvfb :99 &
-xvfb-run -a bundle exec rake spec

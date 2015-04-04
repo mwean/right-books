@@ -1,6 +1,6 @@
 unless Book.any?
   titles = {
-    "A Nation of Takers"                  => [:economics],
+    "A Nation of Takers"                  => [:conservatism],
     "The Pity Party"                      => [:philosophy],
     "Suicide of the West"                 => [:history],
     "Law of the Jungle"                   => [:essentials],

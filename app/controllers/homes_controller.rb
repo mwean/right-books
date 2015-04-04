@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  FEATURED_CATEGORY_KEYS = %w(history biography philosophy economics culture)
+  FEATURED_CATEGORY_KEYS = %w(history biography philosophy current_events religion)
   CATEGORY_SECTION_KEYS  = %w(culture philosophy essentials)
 
   def index
