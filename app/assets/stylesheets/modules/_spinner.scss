@@ -1,0 +1,24 @@
+$spinner-size: 50px;
+
+.spinner {
+  height: $spinner-size;
+  width: $spinner-size;
+  margin: 0px auto;
+  position: relative;
+
+  animation: rotation 1s infinite linear;
+  border-left: 6px solid rgba($medium-gray, .15);
+  border-right: 6px solid rgba($medium-gray, .15);
+  border-bottom: 6px solid rgba($medium-gray, .15);
+  border-top: 6px solid rgba($medium-gray, .8);
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
