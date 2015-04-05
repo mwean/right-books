@@ -1,6 +1,8 @@
-input#new-book-search.new-book__search-field type="text" ng-model="query" autofocus=true
+input#new-book-search.new-book__search-field type="text" ng-model="query" autofocus=true placeholder="Search Amazon"
 
-ul.mt--large
+.spinner ng-if="loading"
+
+ul.search-results.mt--large
   li.search-result-block ng-repeat="book in results" ng-click="addBook(book)"
     .search-result
       img.search-result__cover ng-src="{{ book.coverImageUrl }}"

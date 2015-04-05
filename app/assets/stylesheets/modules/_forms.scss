@@ -1,3 +1,7 @@
+$form-border-radius: 8px;
+$form-border-radius-top: 8px 8px 0px 0px;
+$form-border-radius-bottom: 0px 0px 8px 8px;
+
 fieldset {
   margin: 0 0 ($base-spacing / 2) 0;
   padding: $base-spacing;
@@ -23,22 +27,6 @@ label {
   }
 }
 
-input {
-  @include box-sizing(border-box);
-  @include transition(border-color);
-  background-color: white;
-  border: 1px solid $faint-gray;
-  padding: ($base-spacing / 3) ($base-spacing / 3);
-  width: 100%;
-  position: relative;
-  border-radius: 20px;
-
-  &:focus {
-    border-color: $form-border-color-focus;
-    outline: none;
-  }
-}
-
 select {
   margin-bottom: $base-spacing;
   max-width: 100%;
@@ -50,11 +38,20 @@ select {
   }
 }
 
-.form-inputs input {
-  margin-bottom: 20px;
-  border-radius: 8px;
+input {
+  @include box-sizing(border-box);
+  @include transition(border-color);
+  background-color: white;
+  border: 1px solid $form-border-color;
+  border-top: none;
+  padding: ($base-spacing / 3) ($base-spacing / 3);
+  width: 100%;
   position: relative;
   color: $medium-gray;
+
+  &:focus {
+    outline: none;
+  }
 
   @include placeholder {
     font-size: 90%;
@@ -63,8 +60,21 @@ select {
   }
 }
 
+.form-inputs {
+  margin-bottom: 25px;
+}
+
 .input {
   position: relative;
+
+  &:first-of-type input {
+    border-radius: $form-border-radius-top;
+    border-top: 1px solid $form-border-color;
+  }
+
+  &:last-of-type input {
+    border-radius: $form-border-radius-bottom;
+  }
 }
 
 .input--email, .input--password, .input--name {
@@ -102,5 +112,3 @@ select {
     font-size: 90%;
   }
 }
-
-

@@ -10,10 +10,12 @@ newBookSearch = ($http, $window) ->
     scope.results = []
 
     runSearch = (val) ->
+      scope.loading = true
       request = $http.get(scope.searchUrl, { params: { q: val } })
       request.success((data) -> scope.results = data)
+      request.finally(-> scope.loading = false)
 
-    search = _.debounce(runSearch, 250, { trailing: true })
+    search = _.debounce(runSearch, 300, { trailing: true })
 
     scope.$watch 'query', (newVal, oldVal) ->
       return unless newVal.length && newVal != oldVal

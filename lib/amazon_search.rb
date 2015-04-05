@@ -10,7 +10,7 @@ class AmazonSearch
   private
 
   def items
-    [response['ItemSearchResponse']['Items']['Item']].flatten
+    [response['ItemSearchResponse']['Items']['Item']].flatten.compact
   end
 
   def response

@@ -1,12 +1,12 @@
 .l-main-section
   .form-panel
-    h2.form-panel__title Sign up for Rightbooks
+    h2.form-panel__title--with-logo Sign up for Rightbooks
     .form-panel__content
-      .form-inputs
-        = simple_form_for @user do |f|
+      = simple_form_for @user do |f|
+        .form-inputs
           = f.input :email, placeholder: 'Email', label: false, wrapper_html: { class: 'input--email' }
           = f.input :password, placeholder: 'Password', label: false, wrapper_html: { class: 'input--password' }
           = f.input :password_confirmation, placeholder: 'Password', label: false, wrapper_html: { class: 'input--password' }
           = f.input :first_name, placeholder: 'First Name', label: false, wrapper_html: { class: 'input--name' }
           = f.input :last_name, placeholder: 'Last Name', label: false, wrapper_html: { class: 'input--name' }
-          = f.button :submit, 'Sign Up'
+        = f.button :submit, 'Sign Up', class: ['btn--filled', 'btn']

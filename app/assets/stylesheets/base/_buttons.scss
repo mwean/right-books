@@ -76,3 +76,15 @@ input[type="submit"].btn--small {
     border: 1px solid #7c7c7c;
   }
 }
+
+.btn.btn--filled {
+  background-color: #616073;
+  color: white;
+  border-radius: 8px;
+  border: none;
+
+  &:hover {
+    background-color: lighten(#616073, 5%);
+    color: white;
+  }
+}
