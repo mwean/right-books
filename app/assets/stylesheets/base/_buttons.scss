@@ -78,13 +78,13 @@ input[type="submit"].btn--small {
 }
 
 .btn.btn--filled {
-  background-color: #535573;
+  background-color: #616073;
   color: white;
   border-radius: 8px;
   border: none;
 
   &:hover {
-    background-color: lighten(#535573, 5%);
+    background-color: lighten(#616073, 5%);
     color: white;
   }
 }
