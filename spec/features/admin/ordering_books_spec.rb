@@ -18,8 +18,7 @@ feature 'admin ordering books' do
 
     admin_books_page.filter_category(category)
 
-    expect(admin_books_page).to have_content(book.title)
-    expect(admin_books_page).to have_content(book2.title)
+    expect(admin_books_page).to have_books(count: 2)
     expect(admin_books_page).not_to have_content(book3.title)
 
     first_book = admin_books_page.books.first
