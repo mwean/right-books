@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/getsentry/raven-ruby.git
-  revision: 8ea61f94b7a9ece8ed69e796d326f10c7800127c
-  specs:
-    sentry-raven (0.12.3)
-      faraday (>= 0.7.6)
-
-GIT
   remote: git://github.com/mwean/capybara-angular.git
   revision: 11199f6aa901bd1c9dca605f4e4f8c74311b3097
   specs:
@@ -334,6 +327,8 @@ GEM
       ffi (>= 0.5.0)
     redis (3.1.0)
     request_store (1.1.0)
+    rollbar (1.4.5)
+      multi_json (~> 1.3)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -510,12 +505,12 @@ DEPENDENCIES
   rails_12factor
   rb-fsevent
   redis
+  rollbar (~> 1.4.4)
   rspec-rails
   rubocop (~> 0.27)
   rubocop-rspec
   sass-rails (~> 5.0.1)
   selenium-webdriver
-  sentry-raven!
   shoulda-matchers
   simple_form (~> 3.1.0)
   simplecov
