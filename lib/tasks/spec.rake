@@ -7,6 +7,8 @@ begin
     RSpec::Core::RakeTask.new(:without_features) do |t|
       t.exclude_pattern = 'spec/features/**/*_spec.rb'
     end
+
+    RSpec::Core::RakeTask.new(:all)
   end
 
 rescue LoadError
