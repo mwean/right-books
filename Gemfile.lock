@@ -94,8 +94,6 @@ GEM
       ruby_parser (~> 3.5.0)
       sass (~> 3.0)
       terminal-table (~> 1.4)
-    bugsnag (2.7.1)
-      multi_json (~> 1.0)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -462,7 +460,6 @@ DEPENDENCIES
   bitters
   bourbon
   brakeman
-  bugsnag
   byebug
   capybara
   capybara-angular!

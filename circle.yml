@@ -4,9 +4,8 @@ test:
     - bundle exec rake coffeelint
     - bundle exec brakeman -A --no-combine-locations -z -o $ARTIFACTS/brakeman.html
   override:
-    - bundle exec rake spec:without_features
     - bundle exec rake konacha:run
-    - bundle exec rake spec:features
+    - bundle exec rake spec:all
 
 deployment:
   acceptance:
