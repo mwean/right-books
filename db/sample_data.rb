@@ -1,25 +1,25 @@
 unless Book.any?
   titles = {
-    "A Nation of Takers"                  => [:conservatism],
-    "The Pity Party"                      => [:philosophy],
-    "Suicide of the West"                 => [:history],
-    "Law of the Jungle"                   => [:essentials],
-    "America in Retreat"                  => [:history],
-    "The Black Book of the American Left" => [:philosophy],
-    "Stonewalled"                         => [:history, :philosophy],
-    "Hitler's First Victims"              => [:history],
-    "The Undocumented Mark Steyn"         => [:biography]
+    'A Nation of Takers'                  => %w(conservatism),
+    'The Pity Party'                      => %w(philosophy),
+    'Suicide of the West'                 => %w(history),
+    'Law of the Jungle'                   => %w(essentials),
+    'America in Retreat'                  => %w(history),
+    'The Black Book of the American Left' => %w(philosophy),
+    'Stonewalled'                         => %w(history, :philosophy),
+    "Hitler's First Victims"              => %w(history),
+    'The Undocumented Mark Steyn'         => %w(biography)
   }
 
   categories = Category.all
   existing_books = Book.all
 
-  titles.each do |title, category_names|
+  titles.each do |title, category_keys|
     next if existing_books.find { |book| book.title == title }
 
     amazon_result = AmazonSearch.new(title).results.first
     book = Book.from_amazon_result(amazon_result)
-    book.category_ids = categories.select { |cat| category_names.include?(cat.name) }.map(&:id)
+    book.category_ids = categories.select { |cat| category_keys.include?(cat.key) }.map(&:id)
     book.save
   end
 end
