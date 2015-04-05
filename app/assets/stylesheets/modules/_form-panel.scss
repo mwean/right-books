@@ -6,15 +6,34 @@
 }
 
 .form-panel__title {
-  padding: 40px 0 0;
+  padding: 25px 0 0;
   margin: auto;
   text-align: center;
   font-weight: 300;
   font-size: 26.5px;
+  color: #43455d;
+
+  &--with-logo {
+    @extend .form-panel__title;
+
+    &:before {
+      content: "";
+      @include background-image(url("logo.svg"));
+      background-size: 10px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 160px;
+      height: 135px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .form-panel__content {
-  padding: 40px;
+  padding: 30px 30px 40px 30px;
   width: 375px;
   margin: auto;
 }
