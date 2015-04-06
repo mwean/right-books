@@ -37,7 +37,7 @@ class Book < ActiveRecord::Base
       title:           result.title,
       subtitle:        result.subtitle,
       authors:         result.authors,
-      publish_date:    Date.parse(result.publish_date),
+      publish_date:    Chronic.parse(result.publish_date),
       cover_image_url: result.cover_image_url,
       publisher:       result.publisher,
       description:     result.description,
