@@ -43,7 +43,7 @@ input {
   @include transition(border-color);
   background-color: white;
   border: 1px solid $form-border-color;
-  border-top: none;
+  border-radius: 8px;
   padding: ($base-spacing / 3) ($base-spacing / 3);
   width: 100%;
   position: relative;
@@ -60,20 +60,32 @@ input {
   }
 }
 
+.input {
+  position: relative;
+}
+
 .form-inputs {
   margin-bottom: 25px;
 }
 
-.input {
-  position: relative;
+.form-inputs--grouped {
+  @extend .form-inputs;
 
-  &:first-of-type input {
-    border-radius: $form-border-radius-top;
-    border-top: 1px solid $form-border-color;
+  input {
+    border-top: none;
   }
 
-  &:last-of-type input {
-    border-radius: $form-border-radius-bottom;
+  .input {
+    border-radius: 0;
+
+    &:first-of-type input {
+      border-radius: $form-border-radius-top;
+      border-top: 1px solid $form-border-color;
+    }
+
+    &:last-of-type input {
+      border-radius: $form-border-radius-bottom;
+    }
   }
 }
 
