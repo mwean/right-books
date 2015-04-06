@@ -3,7 +3,7 @@
     .form-panel
       h2.form-panel__title--with-logo Sign in to Rightbooks
       .form-panel__content
-        .form-inputs
+        .form-inputs--grouped
           .input.input--email
             = email_field_tag :email, @email, autofocus: true, placeholder: 'Email', 'ng-class' => "{'input--is-invalid': invalidEmail}", 'ng-model' => 'email', 'ng-blur' => 'checkEmail()'
           .input.input--password

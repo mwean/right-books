@@ -3,7 +3,7 @@
     h2.form-panel__title--with-logo Sign up for Rightbooks
     .form-panel__content
       = simple_form_for @user do |f|
-        .form-inputs
+        .form-inputs--grouped
           = f.input :email, placeholder: 'Email', label: false, wrapper_html: { class: 'input--email' }
           = f.input :password, placeholder: 'Password', label: false, wrapper_html: { class: 'input--password' }
           = f.input :password_confirmation, placeholder: 'Password', label: false, wrapper_html: { class: 'input--password' }
