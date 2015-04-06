@@ -9,7 +9,9 @@ category_info = [
   [:classics, 'Classics'],
   [:conservatism, 'Conservatism'],
   [:religion, 'Religion'],
-  [:essentials, 'Essentials']
+  [:essentials, 'Essentials'],
+  [:law, 'Law'],
+  [:economics, 'Economics']
 ]
 
 category_info.each do |key, name|
