@@ -7,7 +7,8 @@ class AmazonResult
 
   def self.new(data = nil)
     super
-  rescue KeyError
+  rescue
+    Rails.logger.debug data.inspect
     return nil
   end
 
@@ -66,8 +67,9 @@ class AmazonResult
     if item_attributes['Author']
       self.authors = [item_attributes.fetch('Author')].flatten
     else
-      creators = item_attributes.fetch('Creator').map { |creator| creator.fetch('__content__') }
-      self.authors = creators.uniq
+      creators = [item_attributes.fetch('Creator')].flatten
+      creator_names = creators.map { |creator| creator.fetch('__content__') }
+      self.authors = creator_names.uniq
     end
   end
 
