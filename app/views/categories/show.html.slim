@@ -9,4 +9,10 @@ nav.l-side-section.category-nav
 .book-grid.l-main-section--constrained--with-side-nav
   h1.book-grid__title= @category.name
 
+  - if @category.description
+    h3.category-description= @category.description
+
+  - if @category.image_url
+    = image_tag(@category.image_url)
+
   = render 'books', books: @books, book_class: 'book-grid__book'

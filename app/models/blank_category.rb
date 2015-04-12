@@ -6,4 +6,12 @@ class BlankCategory
   def slug
     nil
   end
+
+  def description
+    nil
+  end
+
+  def image_url
+    nil
+  end
 end
