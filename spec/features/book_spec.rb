@@ -47,7 +47,7 @@ feature 'book page' do
       existing_comment.reply_field.set(reply_comment.body)
       existing_comment.reply_submit_button.click
 
-      existing_comment.wait_until_reply_field_invisible
+      wait_until { existing_comment.has_no_reply_field? }
       reply = existing_comment.replies.first
 
       expect(reply).to have_content(reply_comment.body)
