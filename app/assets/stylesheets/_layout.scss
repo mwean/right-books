@@ -19,7 +19,7 @@ main {
 }
 
 .l-side-section {
-  @include span-columns(2.5);
+  @include span-columns(2);
 }
 
 .l-side-section--light {
@@ -38,8 +38,6 @@ main {
 .l-main-section--constrained {
   @include outer-container;
   @include span-columns(9);
-
-  margin-right: 0;
   padding-left: 20px;
 
   & > * + * {
@@ -48,8 +46,14 @@ main {
 }
 
 .l-main-section--constrained--with-side-nav {
-  @include span-columns(9.5);
-  padding: 0 20px;
+  @include outer-container;
+  @include span-columns(10);
+  border-left: $nav-border;
+  padding: 0 60px;
+}
+
+.l-main-section--constrained--with-side-nav-test {
+  @include span-columns(9);
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
