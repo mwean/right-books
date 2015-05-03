@@ -50,6 +50,7 @@ main {
   @include span-columns(10);
   border-left: $nav-border;
   padding: 0 60px;
+  height: 100%;
 }
 
 .l-main-section--constrained--with-side-nav-test {
