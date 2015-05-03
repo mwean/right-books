@@ -20,7 +20,7 @@ html
         h5.primary-header__logo= link_to 'RightBooks', root_path
 
         ul.nav
-          li= link_to 'Browse', '#', class: 'nav__link'
+          li= link_to 'Browse', categories_path, class: 'nav__link'
           li= link_to 'About', page_path('about'), class: 'nav__link'
           li= link_to 'Contact', '#', class: 'nav__link'
           - if current_user

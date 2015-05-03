@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   helper_method :categories
 
+  def index
+  end
+
   def show
     @category = categories.find { |category| category.slug == params[:id] }
     @books = @category.ordered_books
