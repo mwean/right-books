@@ -33,9 +33,8 @@
   background-size: cover;
 }
 
-
 .history {
-  @include background-image(image-url("category-pictures/history-test-2.png"));
+  @include background-image(image-url("category-pictures/history.png"));
 }
 
 .political-philosophy {
@@ -48,4 +47,32 @@
 
 .current-events {
   @include background-image(image-url("category-pictures/current-events.png"));
+}
+
+.politics {
+  @include background-image(image-url("category-pictures/politics5.png"));
+}
+
+.economics {
+  @include background-image(image-url("category-pictures/economics.png"));
+}
+
+.essentials {
+  @include background-image(image-url("category-pictures/essentials.png"));
+}
+
+.religion {
+  @include background-image(image-url("category-pictures/religion.png"));
+}
+
+.foreign-affairs {
+  @include background-image(image-url("category-pictures/foreign-affairs.png"));
+}
+
+.law {
+  @include background-image(image-url("category-pictures/law.png"));
+}
+
+.culture {
+  @include background-image(image-url("category-pictures/culture.png"));
 }
