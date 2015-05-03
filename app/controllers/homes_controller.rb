@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  FEATURED_CATEGORY_KEYS = %w(history biography philosophy current_events religion)
+  FEATURED_CATEGORY_KEYS = %w(politics biography philosophy current_events history)
   CATEGORY_SECTION_KEYS  = %w(culture philosophy essentials)
 
   def index
@@ -21,7 +21,7 @@ class HomesController < ApplicationController
   end
 
   def filter_categories(included_category_keys)
-    all_categories.select { |category| category.key.in?(included_category_keys) }
+    included_category_keys.map { |key| all_categories.find { |category| category.key == key } }
   end
 
   helper_method :featured_categories, :category_sections
