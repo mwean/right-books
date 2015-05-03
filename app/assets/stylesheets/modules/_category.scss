@@ -14,15 +14,32 @@
     @include omega-reset(3n);
   }
 
+.category-temporary {
+  padding: 2.6em;
   height: 100%;
-  padding: 2.3em;
-  margin-bottom: 1em;
+  margin-bottom: 2.5em;
 
   border-radius: 15px;
   border: 1px solid $faint-gray;
   transition: background-color 0.3s;
 
   text-align: center;
+
+  @include span-columns(2 of 8);
+  @include omega(4n);
+
+  @include media(new-breakpoint(max-width 750px min-width 400px)) {
+    padding: 1.8em;
+    @include span-columns(4);
+    @include omega-reset(6n);
+    @include omega(3n);
+  }
+
+  @include media(new-breakpoint(max-width 400px)) {
+    @include span-columns(6);
+    @include omega(2n);
+    @include omega-reset(3n);
+  }
 
   &:hover {
     background-color: lighten($light-gray, 50%);
