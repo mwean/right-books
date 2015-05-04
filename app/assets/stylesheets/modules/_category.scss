@@ -1,8 +1,19 @@
 .category {
+  height: 100%;
+  padding: 2.3em;
+  margin-bottom: 1em;
+
+  border-radius: 15px;
+  border: 1px solid $faint-gray;
+  transition: background-color 0.3s;
+
+  text-align: center;
+
   @include span-columns(2 of 10);
   @include omega(6n);
 
   @include media(new-breakpoint(max-width 750px min-width 400px)) {
+    padding: 1.8em;
     @include span-columns(4);
     @include omega-reset(6n);
     @include omega(3n);
@@ -14,15 +25,41 @@
     @include omega-reset(3n);
   }
 
+  &:hover {
+    background-color: lighten($light-gray, 50%);
+  }
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.category-temporary {
+  padding: 2.6em;
   height: 100%;
-  padding: 2.3em;
-  margin-bottom: 1em;
+  margin-bottom: 2.5em;
 
   border-radius: 15px;
   border: 1px solid $faint-gray;
   transition: background-color 0.3s;
 
   text-align: center;
+
+  @include span-columns(2 of 8);
+  @include omega(4n);
+
+  @include media(new-breakpoint(max-width 750px min-width 400px)) {
+    padding: 1.8em;
+    @include span-columns(4);
+    @include omega-reset(6n);
+    @include omega(3n);
+  }
+
+  @include media(new-breakpoint(max-width 400px)) {
+    @include span-columns(6);
+    @include omega(2n);
+    @include omega-reset(3n);
+  }
 
   &:hover {
     background-color: lighten($light-gray, 50%);
@@ -33,9 +70,8 @@
   background-size: cover;
 }
 
-
 .history {
-  @include background-image(image-url("category-pictures/history-test-2.png"));
+  @include background-image(image-url("category-pictures/history.png"));
 }
 
 .political-philosophy {
@@ -48,4 +84,38 @@
 
 .current-events {
   @include background-image(image-url("category-pictures/current-events.png"));
+}
+
+.politics {
+  @include background-image(image-url("category-pictures/politics5.png"));
+}
+
+.economics {
+  @include background-image(image-url("category-pictures/economics.png"));
+}
+
+.essentials {
+  @include background-image(image-url("category-pictures/essentials.png"));
+}
+
+.religion {
+  @include background-image(image-url("category-pictures/religion.png"));
+}
+
+.foreign-affairs {
+  @include background-image(image-url("category-pictures/foreign-affairs.png"));
+}
+
+.law {
+  @include background-image(image-url("category-pictures/law.png"));
+}
+
+.culture {
+  @include background-image(image-url("category-pictures/culture.png"));
+}
+
+.category__hero {
+  @include span-columns(9.5);
+  padding: $xl 0;
+  background-color: blue;
 }

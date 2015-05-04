@@ -15,7 +15,6 @@
 #  description     :text
 #  editor_notes    :text
 #  isbn            :string
-#  category_ids    :integer          default("{}"), is an Array
 #  authors         :string           default("{}"), is an Array
 #
 # Indexes

@@ -8,7 +8,7 @@ class AmazonResult
   def self.new(data = nil)
     super
   rescue
-    Rails.logger.debug data.inspect
+    Rails.logger.warn data.inspect
     return nil
   end
 

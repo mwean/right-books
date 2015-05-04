@@ -24,6 +24,7 @@ Rails.application.configure do
   config.assets.debug = false
   config.assets.js_compressor = :uglifier
   config.assets.digest = false
+  config.ng_annotate.process = true
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false

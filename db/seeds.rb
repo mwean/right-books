@@ -11,7 +11,8 @@ category_info = [
   [:religion, 'Religion'],
   [:essentials, 'Essentials'],
   [:law, 'Law'],
-  [:economics, 'Economics']
+  [:economics, 'Economics'],
+  [:foreign_affairs, 'Foreign Affairs']
 ]
 
 category_info.each do |key, name|

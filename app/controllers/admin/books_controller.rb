@@ -97,7 +97,7 @@ module Admin
     end
 
     def categories
-      Category.all.map do |category|
+      Category.order(name: :asc).all.map do |category|
         serialized_category = CategorySerializer.new(
           category,
           root: false,

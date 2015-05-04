@@ -19,6 +19,7 @@ gem 'high_voltage', '~> 2.2.1'
 gem 'jquery-rails'
 gem 'neat'
 gem 'newrelic_rpm', '>= 3.7.3'
+gem 'ngannotate-rails'
 gem 'oj'
 gem 'ox', '~> 2.1.8'
 gem 'pg'
@@ -45,11 +46,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-normalize.css'
 end
 
-group :acceptance do
-  gem 'heroku_rails_deflate'
-end
-
 group :production, :acceptance do
+  gem 'heroku_rails_deflate'
   gem 'rack-cache'
   gem 'rack-timeout'
   gem 'rails_12factor'

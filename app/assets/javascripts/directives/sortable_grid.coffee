@@ -1,4 +1,4 @@
-sortableGrid = (gonData, $http, csrfToken) ->
+sortableGrid = ngInject (gonData, $http, csrfToken) ->
   restrict: 'E'
   templateUrl: 'sortable_grid.html'
 
@@ -20,5 +20,4 @@ sortableGrid = (gonData, $http, csrfToken) ->
           book_ids: _.pluck(scope.books, 'id')
           authenticity_token: csrfToken
 
-sortableGrid.$inject = ['gonData', '$http', 'csrfToken']
 angular.module('rightBooks').directive('sortableGrid', sortableGrid)

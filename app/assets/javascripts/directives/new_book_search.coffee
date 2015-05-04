@@ -1,4 +1,4 @@
-newBookSearch = ($http, $window) ->
+newBookSearch = ngInject ($http, $window) ->
   restrict: 'E'
   templateUrl: 'new_book_search.html'
   scope:
@@ -24,5 +24,4 @@ newBookSearch = ($http, $window) ->
     scope.addBook = (book) ->
       $window.location = "#{scope.newBookUrl}?isbn=#{book.isbn}"
 
-newBookSearch.$inject = ['$http', '$window']
 angular.module('rightBooks').directive('newBookSearch', newBookSearch)
