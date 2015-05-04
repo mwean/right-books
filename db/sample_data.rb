@@ -30,3 +30,12 @@ User.where(email: 'admin@example.com').first_or_create(
   first_name: 'Jimmy',
   last_name: 'Admin'
 )
+
+essentials = Category.with_key(:essentials)
+
+if essentials.description.blank? || essentials.image_url.blank?
+  essentials.update_attributes(
+    description: Faker::Lorem.paragraph,
+    image_url: 'http://lorempixel.com/output/city-q-c-640-480-1.jpg'
+  )
+end

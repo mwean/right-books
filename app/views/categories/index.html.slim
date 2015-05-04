@@ -1,0 +1,13 @@
+nav.l-side-section.category-nav
+  h2.category-nav__title All Categories
+
+  ul
+    - categories.each do |category|
+      li.category-nav__item class="#{'category-nav__item--selected' if category == @category}"
+        = link_to category.name, category_path(category)
+
+.l-main-section--constrained--with-side-nav
+  h1.book-grid__title Browse Categories
+  div
+    - categories.each do |category|
+      = link_to '', category_path(category), class: ['category-temporary', category.slug]

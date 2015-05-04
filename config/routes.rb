@@ -6,7 +6,7 @@ RightBooks::Application.routes.draw do
   get 'categories/new-releases', controller: :categories, action: :new_releases
   get :new_releases, controller: :categories, action: :new_releases
 
-  resources :categories, only: :show
+  resources :categories, only: [:index, :show]
 
   resources :users, only: :create do
     collection { get :email }
