@@ -1,9 +1,7 @@
-commentListCtrl = ($scope) ->
+commentListCtrl = ngInject ($scope) ->
   @removeComment = (comment) -> _.pull($scope.comments, comment)
 
-commentListCtrl.$inject = ['$scope']
-
-commentList = ($http, gonData, csrfToken, Comment) ->
+commentList = ngInject ($http, gonData, csrfToken, Comment) ->
   restrict: 'E'
   templateUrl: 'comment_list.html'
   replace: true
@@ -25,5 +23,4 @@ commentList = ($http, gonData, csrfToken, Comment) ->
         scope.comments.push(new Comment(data))
         scope.newComment = {}
 
-commentList.$inject = ['$http', 'gonData', 'csrfToken', 'Comment']
 angular.module('rightBooks').directive('commentList', commentList)

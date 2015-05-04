@@ -1,4 +1,4 @@
-commentItem = (gonData, $compile, $http, csrfToken, Comment, $window) ->
+commentItem = ngInject (gonData, $compile, $http, csrfToken, Comment, $window) ->
   restrict: 'E'
   templateUrl: 'comment_item.html'
   replace: true
@@ -43,5 +43,4 @@ commentItem = (gonData, $compile, $http, csrfToken, Comment, $window) ->
         scope.newComment = {}
         scope.replyExpanded = false
 
-commentItem.$inject = ['gonData', '$compile', '$http', 'csrfToken', 'Comment', '$window']
 angular.module('rightBooks').directive('commentItem', commentItem)

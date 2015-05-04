@@ -1,6 +1,7 @@
 //= require vendor
 //= require_directory ./redactor
 //= require_directory ./templates
+//= require ng_inject
 //= require right_books
 //= require_directory ./values
 //= require_directory ./models

@@ -1,4 +1,4 @@
-commentsSection = ($http, gonData, csrfToken, Comment) ->
+commentsSection = ngInject ($http, gonData, csrfToken, Comment) ->
   restrict: 'E'
   templateUrl: 'comments_section.html'
 
@@ -16,5 +16,4 @@ commentsSection = ($http, gonData, csrfToken, Comment) ->
         scope.comments.push(new Comment(data))
         scope.newComment = {}
 
-commentsSection.$inject = ['$http', 'gonData', 'csrfToken', 'Comment']
 angular.module('rightBooks').directive('commentsSection', commentsSection)
