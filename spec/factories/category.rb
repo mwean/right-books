@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    key { HomesController::FEATURED_CATEGORY_KEYS.sample }
+    key { Faker::Lorem.word }
     name { key.titleize }
 
     trait :with_description do

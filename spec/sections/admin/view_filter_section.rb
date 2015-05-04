@@ -1,6 +1,6 @@
 module Admin
   class ViewFilterSection < SitePrism::Section
-    elements :items, 'td'
+    elements :items, 'td a'
 
     def click_item(name)
       items.find { |el| el.text.include?(name) }.tap do |item|

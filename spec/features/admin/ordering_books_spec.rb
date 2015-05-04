@@ -2,8 +2,9 @@ require 'rails_helper'
 
 feature 'admin ordering books' do
   given(:user) { create(:user, :admin) }
-  given(:category) { create(:category) }
-  given(:category2) { create(:category) }
+  given(:categories) { Category.all.shuffle }
+  given(:category) { categories.first }
+  given(:category2) { categories.last }
   given!(:book) { create(:book, title: 'Some Book', category_ids: [category.id]) }
   given!(:book2) { create(:book, title: 'Different Book', category_ids: [category.id]) }
   given!(:book3) { create(:book, category_ids: [category2.id]) }

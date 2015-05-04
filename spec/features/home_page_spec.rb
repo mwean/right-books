@@ -24,7 +24,7 @@ feature 'home page' do
     end
 
     scenario 'user clicks on a category to browse' do
-      category = create(:category)
+      category = Category.with_key(HomesController::FEATURED_CATEGORY_KEYS.sample)
       book = create(:book, category_ids: [category.id])
       home_page.load
       home_page.categories.click_category(category)
