@@ -3,6 +3,10 @@ class NewReleasesCategory
     'New Releases'
   end
 
+  def key
+    'new_releases'
+  end
+
   def slug
     'new-releases'
   end

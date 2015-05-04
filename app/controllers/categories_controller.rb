@@ -19,6 +19,27 @@ class CategoriesController < ApplicationController
   private
 
   def categories
-    @categories ||= Category.all + [NewReleasesCategory.new]
+    @categories ||= sort(Category.all + [NewReleasesCategory.new])
+  end
+
+  def sort(categories)
+    categories.sort_by { |category| category_order.index(category.key) || 999 }
+  end
+
+  def category_order
+    %w(
+      history
+      law
+      economics
+      biography
+      philosophy
+      politics
+      culture
+      current_events
+      religion
+      conservatism
+      classics
+      fiction
+    )
   end
 end
