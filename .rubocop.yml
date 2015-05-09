@@ -38,6 +38,9 @@ PredicateName:
 Style/SignalException:
   Enabled: false
 
+Rails/Date:
+  EnforcedStyle: acceptable
+
 RSpec/DescribeClass:
   Enabled: false
 RSpec/DescribedClass:

@@ -1,7 +1,7 @@
 module Admin
   class BooksPage < SitePrism::Page
     set_url '/admin/books'
-    set_url_matcher(/admin\/books/)
+    set_url_matcher(%r{admin/books})
 
     section :book_search_modal, Admin::BookSearchModalSection, '.modal'
     section :view_filter, Admin::ViewFilterSection, '.select-dropdown'

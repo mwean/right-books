@@ -1,4 +1,4 @@
-class CategorySection < Struct.new(:category)
+CategorySection = Struct.new(:category) do
   delegate :name, to: :category
 
   def to_partial_path

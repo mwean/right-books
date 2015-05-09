@@ -22,7 +22,7 @@ class Categorization < ActiveRecord::Base
   def self.update_display_order(category_id:, book_ids:)
     order_map = book_ids.map.with_index { |id, i| [id, i] }.to_h
 
-    where(category_id: category_id).each do |categorization|
+    where(category_id: category_id).find_each do |categorization|
       categorization.update_attributes(display_order: order_map[categorization.book_id])
     end
   end

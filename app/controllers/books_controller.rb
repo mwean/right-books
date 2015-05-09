@@ -6,7 +6,7 @@ class BooksController < ApplicationController
     gon.push(
       comments: comments.as_json,
       new_comment_url: book_comments_path(@book),
-      comments_url: comment_path(1).sub(/\/1$/, '')
+      comments_url: comment_path(1).sub(%r{/1$}, '')
     )
   end
 end
