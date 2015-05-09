@@ -9,5 +9,9 @@ FactoryGirl.define do
     amazon_link { Faker::Internet.url }
     publisher { Faker::Company.name }
     description { Faker::Lorem.paragraph }
+
+    trait :new_release do
+      publish_date { Date.yesterday }
+    end
   end
 end

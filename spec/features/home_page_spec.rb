@@ -4,7 +4,7 @@ feature 'home page' do
   given(:home_page) { HomePage.new }
 
   describe 'with a book' do
-    background { @book = create(:book) }
+    background { @book = create(:book, :new_release) }
 
     scenario 'user clicks on new release book and goes to book page' do
       home_page.load

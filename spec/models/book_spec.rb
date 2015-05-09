@@ -11,5 +11,15 @@ describe Book do
       expect(new_releases.size).to eq(2)
       expect(new_releases.map(&:publish_date)).not_to include(oldest_date)
     end
+
+    it 'only includes books published in the last 6 months' do
+      six_months_ago = Date.current - 6.months
+      included_book = create(:book, publish_date: six_months_ago)
+      excluded_book = create(:book, publish_date: six_months_ago - 1)
+
+      new_releases = Book.new_releases(2)
+      expect(new_releases).to include(included_book)
+      expect(new_releases).not_to include(excluded_book)
+    end
   end
 end

@@ -46,7 +46,8 @@ class Book < ActiveRecord::Base
   end
 
   def self.new_releases(count = nil)
-    order(publish_date: :desc).limit(count)
+    six_months_ago = Date.current - 6.months
+    where(arel_table[:publish_date].gteq(six_months_ago)).order(publish_date: :desc).limit(count)
   end
 
   def slug_candidates
