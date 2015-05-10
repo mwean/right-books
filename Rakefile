@@ -8,7 +8,10 @@ RightBooks::Application.load_tasks
 
 if Rails.env.in?(%w(test development))
   require 'rubocop/rake_task'
-  RuboCop::RakeTask.new
+
+  RuboCop::RakeTask.new(:rubocop) do |task|
+    task.options = ['--display-cop-names', '--display-style-guide']
+  end
 end
 
 # Spec is the default rake target.

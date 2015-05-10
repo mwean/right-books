@@ -1,7 +1,7 @@
 guard(:livereload, host: 'localhost') do
   watch(%r{app/views/.+\.slim$})
   watch(%r{app/helpers/.+\.rb})
-  watch(/public\/.+\.(css|js|html)/)
+  watch(%r{public/.+\.(css|js|html)})
   watch(%r{config/locales/.+\.yml})
 
   # Rails Assets Pipeline

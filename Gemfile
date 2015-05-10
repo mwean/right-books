@@ -81,7 +81,7 @@ group :test, :development do
   gem 'rails-assets-angular-mocks'
   gem 'rails-assets-rosie'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.27', require: false
+  gem 'rubocop', '~> 0.31.0', require: false
   gem 'rubocop-rspec', require: false
   gem 'site_prism'
 end

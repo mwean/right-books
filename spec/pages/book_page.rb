@@ -1,6 +1,6 @@
 class BookPage < SitePrism::Page
   set_url '/books{/slug}'
-  set_url_matcher(/books\/[a-z-]+/)
+  set_url_matcher(%r{books/[a-z-]+})
 
   section :comments, CommentsSection, 'comments-section'
 
